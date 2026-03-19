@@ -1,0 +1,200 @@
+.experience-wrapper {
+  position: relative;
+  height: 400vh; /* gives enough scrolling room for the wave effect */
+  background: var(--bg-color);
+}
+
+.sticky-container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+.fixed-header {
+  position: absolute;
+  top: 30vh;
+  left: 5%;
+  width: auto;
+  text-align: left;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+@media (min-width: 1024px) {
+  .fixed-header {
+    left: 10%;
+  }
+}
+
+.wave-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 5%;
+}
+
+@media (min-width: 1024px) {
+  .wave-container {
+    padding-right: 15%;
+  }
+}
+
+.wave-card {
+  position: absolute;
+  width: 320px;
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 30px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  transform-origin: center center;
+  transition: border-color 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .wave-card {
+    width: 420px;
+  }
+}
+
+.card-top {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.card-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-date {
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 6px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.card-role {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.card-company {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.card-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card-bullets li {
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 18px;
+  font-size: 0.9rem;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+.card-bullets li::before {
+  content: '\2192';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent-color);
+}
+
+/* ── Mobile: Simple stacked cards ── */
+.experience-mobile {
+  padding: 80px 5% 60px;
+  background: var(--bg-color);
+}
+
+.mobile-exp-header {
+  margin-bottom: 40px;
+}
+
+.mobile-exp-header .section-title {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+}
+
+.mobile-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.mobile-exp-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-exp-card .card-top {
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.mobile-exp-card .card-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.mobile-exp-card .card-date {
+  font-size: 0.75rem;
+}
+
+.mobile-exp-card .card-role {
+  font-size: 1.1rem;
+}
+
+.mobile-exp-card .card-company {
+  font-size: 0.85rem;
+  margin-bottom: 14px;
+}
+
+.mobile-exp-card .card-bullets li {
+  font-size: 0.82rem;
+  margin-bottom: 8px;
+}

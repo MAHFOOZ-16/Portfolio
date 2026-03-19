@@ -1,0 +1,228 @@
+.introduction {
+    inset: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 9999;
+    background-color: #141516;
+    overflow: hidden;
+}
+
+.introduction svg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: calc(100% + 300px);
+}
+
+.introduction svg path {
+    fill: #141516;
+}
+
+/* ── Jelly Canvas ── */
+.jelly-slider-canvas {
+    opacity: 1;
+    transition: opacity 0.7s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.jelly-slider-canvas.jelly-fading {
+    opacity: 0;
+}
+
+.jelly-slider-canvas.jelly-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.intro-content-layer {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    padding: 0 5vw;
+    pointer-events: none;
+}
+
+/* ── Single word display (one at a time, centered) ── */
+.intro-single-word-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 15px;
+    max-width: 90vw;
+    width: 100%;
+}
+
+/* ── Dot ── */
+.intro-dot {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* ── Word Text ── */
+.intro-word {
+    display: block;
+    color: white;
+    font-size: clamp(24px, 4vw, 42px);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    font-family: var(--font-heading);
+    opacity: 0.9;
+}
+
+/* ── Welcome — larger, bolder, full opacity ── */
+.welcome-word {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    opacity: 1;
+}
+
+@keyframes mobileWordFade {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes mobileJellyPulse {
+    0% {
+        transform: scale(0.92);
+        opacity: 0.35;
+    }
+    100% {
+        transform: scale(1.08);
+        opacity: 0.65;
+    }
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+    .introduction {
+        width: 100vw;
+        height: 100vh;
+        min-height: 100svh;
+        padding:
+            max(24px, env(safe-area-inset-top))
+            20px
+            max(24px, env(safe-area-inset-bottom))
+            20px;
+    }
+
+    .introduction svg {
+        display: none;
+    }
+
+    .mobile-jelly-stage {
+        position: absolute;
+        inset: 0;
+        z-index: 30;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding:
+            max(24px, env(safe-area-inset-top))
+            20px
+            max(24px, env(safe-area-inset-bottom))
+            20px;
+        overflow: hidden;
+    }
+
+    .mobile-jelly-shell {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        width: min(84vw, 340px);
+    }
+
+    .mobile-jelly-shell::before {
+        content: "";
+        position: absolute;
+        inset: auto 50% 28px;
+        width: min(72vw, 250px);
+        height: min(72vw, 250px);
+        transform: translateX(-50%);
+        border-radius: 50%;
+        background:
+            radial-gradient(circle, rgba(251, 146, 60, 0.24) 0%, rgba(244, 114, 182, 0.14) 38%, rgba(20, 21, 22, 0) 74%);
+        filter: blur(8px);
+        animation: mobileJellyPulse 1.2s ease-in-out infinite alternate;
+    }
+
+    .mobile-jelly-svg {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: auto;
+        overflow: visible;
+        filter: drop-shadow(0 12px 34px rgba(0, 0, 0, 0.3));
+    }
+
+    .mobile-jelly-copy {
+        position: relative;
+        z-index: 1;
+        color: rgba(255, 255, 255, 0.54);
+        font-size: 11px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    .intro-content-layer {
+        padding:
+            max(24px, env(safe-area-inset-top))
+            20px
+            max(24px, env(safe-area-inset-bottom))
+            20px;
+    }
+
+    .intro-single-word-wrapper {
+        gap: 12px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: min(90vw, 420px);
+        max-width: 420px;
+        padding: 0 12px;
+    }
+
+    .mobile-word-visible {
+        animation: mobileWordFade 0.45s cubic-bezier(0.76, 0, 0.24, 1);
+    }
+
+    .intro-dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .intro-word {
+        max-width: 100%;
+        font-size: clamp(18px, 5.4vw, 28px);
+        text-align: center;
+        line-height: 1.25;
+        text-wrap: balance;
+        overflow-wrap: break-word;
+    }
+
+    .welcome-word {
+        font-size: clamp(24px, 7vw, 36px);
+        line-height: 1.15;
+    }
+}

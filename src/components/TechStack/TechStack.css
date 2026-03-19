@@ -1,0 +1,493 @@
+/* ══════════════════════════════════════════════════
+   Skill Constellation — Neo4j-Style Floating Graph
+   ══════════════════════════════════════════════════ */
+
+/* ── Section ── */
+.sg-section {
+  padding: 100px 5%;
+  position: relative;
+  z-index: 10;
+  background: var(--bg-color);
+}
+
+.sg-section__header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* ── Graph Container (square, centered) ── */
+.sg {
+  position: relative;
+  width: 100%;
+  max-width: 850px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Subtle radial glow behind center */
+.sg::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(160, 160, 180, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ═══════════════════════════
+   SVG Connection Lines
+   ═══════════════════════════ */
+.sg__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sg__edge {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-opacity 0.4s ease;
+}
+
+.sg--visible .sg__edge {
+  animation: edgeDraw 1.2s ease forwards;
+  animation-delay: var(--edge-delay);
+}
+
+@keyframes edgeDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ═══════════════════════════
+   Center Identity Node
+   ═══════════════════════════ */
+.sg__center-pos {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 120px;
+  height: 120px;
+}
+
+/* Rotating orbit rings */
+.sg__center-orbit {
+  position: absolute;
+  inset: -18px;
+  border-radius: 50%;
+  border: 1px dashed rgba(160, 160, 170, 0.12);
+  animation: orbitSpin 28s linear infinite;
+  pointer-events: none;
+}
+
+.sg__center-orbit--2 {
+  inset: -36px;
+  border-style: dotted;
+  border-color: rgba(160, 160, 170, 0.06);
+  animation-duration: 40s;
+  animation-direction: reverse;
+}
+
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Core circle — Metallic design */
+.sg__center-core {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 45% 40%, #1e1e1e 0%, #0a0a0a 60%, #050505 100%);
+  border: 2.5px solid rgba(160, 160, 170, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  box-shadow:
+    0 0 0 1px rgba(80, 80, 90, 0.25),
+    0 0 30px rgba(180, 180, 190, 0.08),
+    0 6px 25px rgba(0, 0, 0, 0.5),
+    inset 0 1px 4px rgba(255, 255, 255, 0.06),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+  animation: centerPulse 4s ease-in-out infinite;
+  cursor: grab;
+}
+
+.sg__center-core:active {
+  cursor: grabbing;
+}
+
+@keyframes centerPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 0 1px rgba(80, 80, 90, 0.25),
+      0 0 30px rgba(180, 180, 190, 0.08),
+      0 6px 25px rgba(0, 0, 0, 0.5),
+      inset 0 1px 4px rgba(255, 255, 255, 0.06),
+      inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(100, 100, 110, 0.3),
+      0 0 45px rgba(200, 200, 210, 0.12),
+      0 6px 25px rgba(0, 0, 0, 0.5),
+      inset 0 1px 6px rgba(255, 255, 255, 0.1),
+      inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.sg__center-name {
+  font-family: var(--font-heading);
+  font-size: 0.5rem;
+  color: rgba(200, 200, 210, 0.85);
+  text-align: center;
+  line-height: 1.35;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  text-transform: uppercase;
+  max-width: 90px;
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.6),
+    0 0 12px rgba(200, 200, 210, 0.1);
+}
+
+/* ═══════════════════════════
+   Shared Node Positioning
+   ═══════════════════════════ */
+.sg__node-pos {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.4s ease;
+  pointer-events: auto;
+  cursor: grab;
+}
+
+.sg__node-pos:active,
+.sg__node--dragging {
+  cursor: grabbing;
+  z-index: 20 !important;
+}
+
+/* Disable transitions while dragging for instant position updates */
+.sg--dragging .sg__node-pos {
+  transition: opacity 0.4s ease;
+}
+
+.sg--dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+
+/* Freeze float animation on dragged node */
+.sg__float--frozen {
+  animation: none !important;
+}
+
+/* ═══════════════════════════
+   Float Animation Wrapper
+   ═══════════════════════════ */
+.sg--visible .sg__float {
+  animation: nodeFloat var(--float-dur) ease-in-out var(--float-delay) infinite;
+}
+
+@keyframes nodeFloat {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(var(--float-x), var(--float-y)); }
+  66% { transform: translate(calc(var(--float-x) * -0.7), calc(var(--float-y) * 0.6)); }
+}
+
+/* ═══════════════════════════
+   Category Nodes
+   ═══════════════════════════ */
+.sg__cat {
+  opacity: 0;
+  transform: scale(0);
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+}
+
+.sg--visible .sg__cat {
+  animation: nodeEnter 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) var(--enter-delay) forwards;
+}
+
+@keyframes nodeEnter {
+  from { opacity: 0; transform: scale(0); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.sg__cat-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid var(--cat-color);
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--cat-color) 8%, transparent) 0%,
+    rgba(12, 12, 15, 0.92) 70%
+  );
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow:
+    0 0 25px color-mix(in srgb, var(--cat-color) 25%, transparent),
+    inset 0 0 15px color-mix(in srgb, var(--cat-color) 8%, transparent);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.sg__cat:hover .sg__cat-ring {
+  box-shadow:
+    0 0 40px color-mix(in srgb, var(--cat-color) 45%, transparent),
+    inset 0 0 25px color-mix(in srgb, var(--cat-color) 15%, transparent);
+  transform: scale(1.12);
+}
+
+.sg__cat-label {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-heading);
+  font-size: 0.52rem;
+  font-weight: 700;
+  color: var(--cat-color);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-shadow: 0 0 12px color-mix(in srgb, var(--cat-color) 40%, transparent);
+  max-width: 82px;
+  line-height: 1.25;
+  pointer-events: none;
+}
+
+/* ═══════════════════════════
+   Skill Nodes
+   ═══════════════════════════ */
+.sg__skill {
+  opacity: 0;
+  transform: scale(0);
+  cursor: pointer;
+}
+
+.sg--visible .sg__skill {
+  animation: nodeEnter 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) var(--enter-delay) forwards;
+}
+
+.sg__skill-text {
+  display: block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #e0e0e0;
+  white-space: nowrap;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid color-mix(in srgb, var(--cat-color) 22%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.sg__skill:hover .sg__skill-text {
+  color: #fff;
+  background: color-mix(in srgb, var(--cat-color) 12%, transparent);
+  border-color: var(--cat-color);
+  box-shadow:
+    0 0 24px color-mix(in srgb, var(--cat-color) 30%, transparent),
+    0 4px 20px rgba(0, 0, 0, 0.3);
+  transform: scale(1.15);
+}
+
+/* ═══════════════════════════
+   Mobile Fallback — Grid
+   ═══════════════════════════ */
+.sg-mobile {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  padding: 0 4%;
+}
+
+.sg-mobile__group {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.sg-mobile--visible .sg-mobile__group {
+  animation: mobileGroupIn 0.5s ease-out var(--delay) forwards;
+}
+
+@keyframes mobileGroupIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sg-mobile__title {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 14px;
+}
+
+.sg-mobile__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.sg-mobile__badge {
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border: 1px solid;
+  background: rgba(255, 255, 255, 0.04);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.sg-mobile--visible .sg-mobile__badge {
+  animation: badgeIn 0.4s ease-out var(--badge-delay) forwards;
+}
+
+@keyframes badgeIn {
+  to { opacity: 1; transform: scale(1); }
+}
+
+.sg-mobile__badge:active {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.08);
+}
+
+/* ═══════════════════════════
+   Responsive
+   ═══════════════════════════ */
+@media (max-width: 1100px) and (min-width: 769px) {
+  .sg {
+    max-width: 680px;
+  }
+
+  .sg__cat {
+    width: 78px;
+    height: 78px;
+  }
+
+  .sg__cat-label {
+    font-size: 0.48rem;
+    max-width: 66px;
+  }
+
+  .sg__skill-text {
+    font-size: 0.65rem;
+    padding: 4px 10px;
+  }
+
+  .sg__center-pos {
+    width: 100px;
+    height: 100px;
+  }
+
+  .sg__center-orbit {
+    inset: -14px;
+  }
+
+  .sg__center-orbit--2 {
+    inset: -28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sg-section {
+    padding: 60px 2%;
+  }
+
+  .sg {
+    max-width: 100%;
+    overflow: visible;
+  }
+
+  .sg__center-pos {
+    width: 80px;
+    height: 80px;
+  }
+
+  .sg__center-name {
+    font-size: 0.4rem;
+    max-width: 68px;
+  }
+
+  .sg__center-orbit {
+    inset: -10px;
+  }
+
+  .sg__center-orbit--2 {
+    inset: -20px;
+  }
+
+  .sg__cat {
+    width: 64px;
+    height: 64px;
+  }
+
+  .sg__cat-label {
+    font-size: 0.38rem;
+    max-width: 56px;
+  }
+
+  .sg__skill-text {
+    font-size: 0.55rem;
+    padding: 3px 7px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sg-section {
+    padding: 60px 1%;
+  }
+
+  .sg__center-pos {
+    width: 68px;
+    height: 68px;
+  }
+
+  .sg__center-name {
+    font-size: 0.35rem;
+    max-width: 58px;
+  }
+
+  .sg__cat {
+    width: 54px;
+    height: 54px;
+  }
+
+  .sg__cat-label {
+    font-size: 0.34rem;
+    max-width: 48px;
+  }
+
+  .sg__skill-text {
+    font-size: 0.48rem;
+    padding: 2px 6px;
+  }
+}

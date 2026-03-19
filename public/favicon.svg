@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <circle cx="32" cy="32" r="30" fill="#0a0a0a" stroke="#a0a0aa" stroke-width="2.5"/>
+  <circle cx="32" cy="32" r="30" fill="url(#g)" opacity="0.4"/>
+  <text x="32" y="36" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#d0d0d8" letter-spacing="2">MAK</text>
+  <defs>
+    <radialGradient id="g" cx="45%" cy="40%">
+      <stop offset="0%" stop-color="#2a2a2a"/>
+      <stop offset="100%" stop-color="#050505"/>
+    </radialGradient>
+  </defs>
+</svg>

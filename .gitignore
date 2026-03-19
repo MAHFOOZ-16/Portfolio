@@ -1,0 +1,45 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ── AI Tool Folders ──────────────────────────────────────────
+# Claude & Codex agent context / session files — never commit
+.claude/
+.codex/
+
+# ── Environment & Secrets ────────────────────────────────────
+.env
+.env.*
+.env.local
+.env.*.local
+
+# ── Scratch / Utility Scripts ────────────────────────────────
+# One-off helper scripts that are not part of the app
+capture_logs.cjs
+categorize_projects.py
+date_sort_projects.py
+generate_projects.py
+sort_projects.py
+update_urls.py
+test_typegpu.js

@@ -1,0 +1,484 @@
+{
+  "personal": {
+    "name": "AHMED MAHFOOZ ALI KHAN",
+    "phone": "+46 762467093",
+    "email": "ahmedmahfooz2me@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/ahmed-mahfooz-ali-khan-740ab4257/",
+    "github": "https://github.com/MAHFOOZ-16"
+  },
+  "skills": {
+    "languages": [
+      "C",
+      "C++",
+      "SQL",
+      "Java",
+      "Python",
+      "HTML",
+      "CSS",
+      ".NET",
+      "Matlab",
+      "LaTeX",
+      "Rust",
+      "English",
+      "Swedish"
+    ],
+    "libraries": [
+      "Pandas",
+      "NumPy",
+      "React",
+      "Matplotlib"
+    ],
+    "frameworks": [
+      "TensorFlow",
+      "Keras",
+      "Scikit-learn",
+      "RAG",
+      "NLTK",
+      "spaCy",
+      "LightGBM",
+      "Ollama",
+      "LangChain"
+    ],
+    "analysis": [
+      "Regression Analysis",
+      "Hypothesis Testing",
+      "Clustering",
+      "RNNs",
+      "GNNs",
+      "CNNs"
+    ],
+    "tools": [
+      "Maltego",
+      "Nmap",
+      "Sqlmap",
+      "Burp Suite",
+      "Hydra",
+      "Rightway",
+      "Rheino"
+    ],
+    "network": [
+      "HTTP",
+      "FTP",
+      "SSH",
+      "SMTP",
+      "DNS",
+      "DHCP",
+      "TCP/IP"
+    ],
+    "security": [
+      "Nessus",
+      "Nexpose",
+      "Nikto",
+      "Wireshark",
+      "Splunk",
+      "Vulnerability & patch management",
+      "Linux hardening",
+      "compliance checks"
+    ],
+    "methodologies": [
+      "OWASP Top 10",
+      "SANS Top 25",
+      "SDLC",
+      "MITRE ATT&CK"
+    ],
+    "os": [
+      "Windows",
+      "Mac OS",
+      "Linux",
+      "Parrot",
+      "Ubuntu",
+      "Git"
+    ]
+  },
+  "education": [
+    {
+      "institution": "Blekinge Institute of Technology",
+      "location": "Karlskrona, Sweden",
+      "degree": "Master\u2019s Degree in Computer Science",
+      "period": "January 2024 -- February 2026"
+    },
+    {
+      "institution": "Jawaharlal Nehru Technological University",
+      "location": "Hyderabad, India",
+      "degree": "Bachelor\u2019s Degree in Computer Science Engineering",
+      "period": "December 2020 -- December 2023"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Artificial Intelligence Master Thesis",
+      "company": "Volvo Construction Equipment",
+      "location": "Gothenburg, Sweden",
+      "period": "December 2024 -- June 2025",
+      "bullets": [
+        "Spearheaded a cutting edge research initiative under the SUGAR program in partnership with BTH and Volvo CE, focusing on leveraging AI methodologies.",
+        "Devised an AI-driven service and business model that cut downtime by 20% and improved on site asset integration; built a RAG prototype with PostgreSQL.",
+        "Presented project advancements during an international summit in S\u00e3o Paulo, Brazil.",
+        "Showcased final deliverables at Silicon Valley, USA."
+      ]
+    },
+    {
+      "title": "Artificial Intelligence Internship",
+      "company": "Price Waterhouse Coopers International Limited (PwC)",
+      "location": "Zurich, Switzerland",
+      "period": "July 2024 -- September 2024",
+      "bullets": [
+        "Completed a job simulation involving 25% data analysis and modelling for the Artificial Intelligence team.",
+        "Built Python classification models, improving data driven decision accuracy by 30% using GenAI technology.",
+        "Analyzed 60% data for adverse effects, compared medications and contributed to a client data strategy.",
+        "Refined data processes through advanced feature engineering and robust statistical analyses."
+      ]
+    },
+    {
+      "title": "Cyber Security Internship",
+      "company": "Entersoft Labs",
+      "location": "Hyderabad, India",
+      "period": "May 2024 -- July 2024",
+      "bullets": [
+        "Conducted Behavioral Analysis, System Testing on web applications, reducing potential attack vectors by 25%.",
+        "Monitored network traffic using SIEM tools, Log Analysis contributing to early threat detection by 40%.",
+        "Configured firewalls, IDS/IPS and antivirus systems, enhancing network security measures by 30%.",
+        "Utilized advanced security tools, including Burp Suite, OWASP ZAP and Metasploit, to assess vulnerabilities."
+      ]
+    },
+    {
+      "title": "Full Stack Web Development Internship",
+      "company": "Indian Institute of Technology (IIT)",
+      "location": "Kanpur, India",
+      "period": "October 2023 -- December 2023",
+      "bullets": [
+        "Engineered a robust API using Node.js, Express.js and MongoDB, improving reliability and reducing response time by 40%.",
+        "Implemented user authentication and authorization using JWT, reducing unauthorized access incidents by 50%.",
+        "Conceptualized and implemented an advanced Front End Web UI leveraging CSS, JavaScript, and React.",
+        "Deployed containerized services to Azure via CI/CD and Terraform."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Marknaden Sweden",
+      "tech": "Web Development, Application",
+      "codeUrl": "https://github.com/MAHFOOZ-16/marknaden-sweden",
+      "description": "An e-commerce marketplace platform for the Swedish market.",
+      "category": "Full Stack",
+      "liveUrl": "https://marknaden-sweden.azurewebsites.net/"
+    },
+    {
+      "title": "AR Gesture Controlled Threat Shooter",
+      "tech": "MediaPipe, OpenCV, TensorFlow.js, WebRTC, Canvas",
+      "period": "January 2026 -- March 2026",
+      "codeUrl": "https://github.com/MAHFOOZ-16/AR-Game",
+      "liveUrl": "https://ar-game-sigma.vercel.app/",
+      "description": "Cross-platform AR shooter using real-time hand tracking via MediaPipe. Implemented gesture-based flick-to-shoot mechanics achieving 70% precision improvement through adaptive smoothing. Deployed as full-stack web app (browser) + desktop app (Python/OpenCV) with responsive sci-fi UI, 30+ FPS performance on M1 Macs, and dynamic difficulty scaling.",
+      "category": "Game Development & AI"
+    },
+    {
+      "title": "Auto Apply Sweden",
+      "tech": "Automation, Python",
+      "codeUrl": "https://github.com/MAHFOOZ-16/auto-apply-sweden",
+      "description": "Automated job application system targeting open positions in the Swedish market.",
+      "category": "AI/ML"
+    },
+    {
+      "title": "AI-Powered Electronic Device Recognition System for E-Waste Recycling",
+      "tech": "CNN, MobileNetV2, Image Classification, AI",
+      "reportUrl": "https://drive.google.com/file/d/1cTGTCvhCfixYGY7wvaqMIIkYtACVsBpx/view?usp=sharing",
+      "codeUrl": "https://github.com/MAHFOOZ-16/AIEwaste",
+      "description": "This project developed an AI assistant that recognizes electronic devices from images to support correct e-waste recycling. A MobileNetV2-based CNN was trained to classify devices.",
+      "category": "AI/ML"
+    },
+    {
+      "title": "Teacher - Student Knowledge Distillation for Model Compression",
+      "tech": "Knowledge Distillation, Keras, CNN, Model Compression",
+      "period": "August 2025 -- September 2025",
+      "description": "Devised a teacher-student knowledge distillation strategy in TensorFlow, compressing model size by 12% without compromising predictive accuracy. Formulated optimal temperature scaling and distillation loss-weighting, driving a 15% reduction in inference latency.",
+      "category": "AI/ML",
+      "reportUrl": "https://drive.google.com/file/d/11v3eA0eP1l6a1RXXHrUk9DBVpOUJlWBg/view?usp=sharing"
+    },
+    {
+      "title": "AI-driven Optimization Framework for Construction Site Ecosystem",
+      "tech": "AI, Predictive Maintenance, Real-time Optimization",
+      "codeUrl": "https://github.com/MAHFOOZ-16/volvo_final",
+      "reportUrl": "https://drive.google.com/file/d/1rTMU8qmwuRaANLSF43rEeqFTCfgv_eNK/view?usp=drive_link",
+      "description": "This project focused on enhancing construction site operations by integrating AI solutions for predictive maintenance, real-time optimization, and hybrid communication frameworks. The solutions aimed to address inefficiencies in manual maintenance, fragmented workflows, and connectivity challenges.",
+      "category": "AI/ML"
+    },
+    {
+      "title": "Gravity Anomaly Prediction Using Machine Learning",
+      "tech": "Scipy, Xgboost",
+      "period": "March 2025 -- May 2025",
+      "description": "Tested 13 machine learning models, including KNN, Random Forest, neural networks, and graph-based techniques. Established that nonlinear models surpassed linear ones by over 20% in performance. Recorded an R\u00b2 of 99.7% and a MAE of 1.09 mGal with the Hybrid KNN+RF model.",
+      "category": "AI/ML"
+    },
+    {
+      "title": "Bookstore Full Stack Web Development",
+      "tech": "MongoDB, Express, React, Node.js, Docker, Kubernetes",
+      "reportUrl": "https://drive.google.com/file/d/1335sd3WfGd4NPGGNxZ_rCR2kHIMxrnog/view?usp=sharing",
+      "videoUrl": "https://drive.google.com/file/d/19lLh3N3GpXb5TKwQ7hY006Qc5oK--zzP/view?usp=sharing",
+      "codeUrl": "https://github.com/MAHFOOZ-16/bookstore-web",
+      "description": "A full-stack web application was developed for managing bookstore operations using the MERN stack. The application was containerized using Docker and orchestrated with Kubernetes.",
+      "category": "Full Stack",
+      "liveUrl": "https://bookstore-frontend.purplerock-c1391855.swedencentral.azurecontainerapps.io/"
+    },
+    {
+      "title": "Character Encoding and Image Decoding",
+      "tech": "PIL, PyTorch, PyTesseract, Computer Vision, Python",
+      "period": "September 2024 -- November 2024",
+      "description": "Conceived an image encoding function boosting barcode conversion accuracy by 23%, ensuring precise representation. Leveraged Python image processing libraries to optimize execution speed by 30%. Crafted a decoding algorithm increasing pixel data parsing accuracy by 29%.",
+      "category": "AI/ML",
+      "reportUrl": "https://drive.google.com/file/d/1XnTY5smWz1gnHDwfPDAsQ8gMO7Z9hq4o/view?usp=drive_link"
+    },
+    {
+      "title": "Smart Chatbot - A Machine Learning Approach to Human-Computer Interaction",
+      "tech": "Machine Learning, NLP, Chatbot",
+      "codeUrl": "https://github.com/MAHFOOZ-16/Smart-Chatbot-A-Machine-Learning-Approach-to-Human-Computer-Interaction",
+      "description": "A sophisticated conversational agent leveraging machine learning techniques to process natural language.",
+      "category": "AI/ML"
+    },
+    {
+      "title": "SECURING IoT DATA",
+      "tech": "HTTPS, STRIDE, NumPy, SHA256",
+      "period": "June 2023 -- December 2023",
+      "description": "Programmed a secure IoT data solution with blockchain integration in the cloud, enhancing data integrity and transparency by 75%. Implemented cryptographic permissions to enhance data privacy, achieving 90% of data ownership.",
+      "category": "Cyber Security"
+    },
+    {
+      "title": "Software Metrics Report on Object-Oriented Metrics",
+      "tech": "SourceMonitor, MetricsReloaded, Object-Oriented Metrics",
+      "reportUrl": "https://drive.google.com/file/d/1ZMCjRgwNKLf36TZ1uNd_rNXI_GKn9E0q/view?usp=sharing",
+      "description": "This project examined the effectiveness of Object-Oriented metrics such as Cyclomatic Complexity, Coupling Between Objects (CBO), and Lines of Code (LOC) to evaluate software quality. Using tools like SourceMonitor and MetricsReloaded, the study identified key metrics affecting maintainability.",
+      "category": "Software Engineering"
+    },
+    {
+      "title": "Lucene Software Metrics Analysis",
+      "tech": "Statistical Analysis, Data Visualization, Object-Oriented Metrics",
+      "reportUrl": "https://drive.google.com/file/d/1YE4BwqlS8QRTuWvWhLi6tCqMjknmImdr/view?usp=sharing",
+      "description": "This project assessed maintainability challenges in the Lucene open-source system by analyzing various versions using object-oriented metrics. Statistical techniques and visualizations were employed.",
+      "category": "Software Engineering"
+    },
+    {
+      "title": "Steganography in Medical Imaging",
+      "tech": "LSB, DWT, Data Privacy, HIPAA compliance",
+      "reportUrl": "https://drive.google.com/file/d/1S2Lhd6msLb1jZKAGS48al2emB2b7XWRr/view?usp=sharing",
+      "description": "A systematic review and experimental analysis of steganographic techniques in medical imaging to ensure data privacy and image quality. The study explored methods like LSB and DWT.",
+      "category": "Cyber Security"
+    },
+    {
+      "title": "Research Methodology for Medical Imaging",
+      "tech": "Image Quality Metrics, PSNR, CNR, Experimental Analysis",
+      "reportUrl": "https://drive.google.com/file/d/1qTRtGw_Iw7azBpQE2PLQU3A8csBlTTl_/view?usp=sharing",
+      "description": "An experimental study evaluating the impact of steganography on medical image quality and data privacy. Metrics like CNR and PSNR were used to assess image quality.",
+      "category": "Cyber Security"
+    },
+    {
+      "title": "A Steganographic Approach for Medical Imaging",
+      "tech": "Adaptive Steganography, Data Security",
+      "reportUrl": "https://drive.google.com/file/d/1nr2QI52Onl25zR4iTzIyid1ZkBkxejwj/view?usp=sharing",
+      "description": "This project investigated the implementation of adaptive steganographic algorithms in medical imaging to enhance security and robustness.",
+      "category": "Cyber Security"
+    },
+    {
+      "title": "Securing LLM Chatbots",
+      "tech": "Prompt Injection Mitigation, Encryption, LLM Security",
+      "reportUrl": "https://drive.google.com/file/d/1XqtRpymm6fGKIwTURKpUm0tkbSsmgPt2/view?usp=sharing",
+      "description": "A report addressing security vulnerabilities in large language model chatbots, including prompt injections and insecure output handling. The project proposed mitigation strategies like encryption.",
+      "category": "Cyber Security"
+    },
+    {
+      "title": "Security and Quality Trade-offs",
+      "tech": "SSO, Multi-factor Authentication, System Design",
+      "reportUrl": "https://drive.google.com/file/d/1b2wQHs2xwnptSuvfHjUWHZdKY-6QYiuX/view?usp=sharing",
+      "description": "An in-depth examination of balancing security with other software quality attributes such as performance, reliability, and usability. The study proposed adaptive solutions.",
+      "category": "Cyber Security"
+    },
+    {
+      "title": "Threat modeling and risk analysis for LLM-based architecture",
+      "tech": "STRIDE, Threat Modeling, CVSS 3.1, DFD",
+      "reportUrl": "https://docs.google.com/spreadsheets/d/1G7ztPGFFmqCdE12iI2wVEsZeR468OJ0K/edit?usp=sharing",
+      "description": "This project focuses on designing a Gandalf-like app to test prompt injection attacks. It involves creating a Data Flow Diagram, threat modeling with STRIDE, and assessing risks using CVSS 3.1.",
+      "category": "Cyber Security"
+    },
+    {
+      "title": "Maze Navigation with Genetic Algorithms",
+      "tech": "Genetic Algorithms, Real-time Problem Solving",
+      "reportUrl": "https://drive.google.com/file/d/1_H24oTXW9FhI8eHqMzvYI1Z00L9UtQSA/view?usp=sharing",
+      "description": "This project implemented a Genetic Algorithm to solve a maze navigation problem. It included random path generation, fitness evaluation, and visualization of the optimal path.",
+      "category": "AI/ML"
+    },
+    {
+      "title": "Traveling Salesman Problem Using Genetic Algorithm",
+      "tech": "Genetic Algorithm, Evolutionary Strategies",
+      "reportUrl": "https://drive.google.com/file/d/1SdIN_-BaiHzMiOV-dbc3KtkOjdCURQ8c/view?usp=sharing",
+      "description": "This project applied genetic algorithms to solve the Traveling Salesman Problem. By experimenting with population size and mutation rates, the study demonstrated optimized complex routes.",
+      "category": "AI/ML"
+    },
+    {
+      "title": "Reverse Engineering x86 Assembly Code",
+      "tech": "x86 Assembly, Reverse Engineering, Pseudocode",
+      "reportUrl": "https://drive.google.com/file/d/1XeFFXVa2Xk-xAotGa7lCofr_nQF8s11c/view?usp=sharing",
+      "description": "This lab focused on translating x86 assembly instructions into high-level pseudocode. Tasks included analyzing function prologues, conditionals, and return values.",
+      "category": "Cyber Security"
+    },
+    {
+      "title": "Set-User-ID and Security in Linux",
+      "tech": "Linux Security, Privilege Escalation, System Calls",
+      "reportUrl": "https://drive.google.com/file/d/1XmKJBgtuL6oqdmfvduXQqVqucsMQILna/view?usp=sharing",
+      "description": "This project explored vulnerabilities associated with Set-UID programs in Linux. Tasks included experimenting with system calls like execve and identifying privilege escalation risks.",
+      "category": "Cyber Security"
+    },
+    {
+      "title": "Environment Variables and System Behavior",
+      "tech": "Unix Systems, Environment Variables, execve",
+      "reportUrl": "https://drive.google.com/file/d/1elGCYfZ9fRX6dv25mq5zfZ-aQ26rUcUS/view?usp=sharing",
+      "description": "This lab-based project explored the role and manipulation of environment variables in Unix systems. Tasks included creating and securing system operations.",
+      "category": "Cyber Security"
+    },
+    {
+      "title": "Buffer Overflow Exploit (Set-UID Privilege Escalation)",
+      "tech": "Buffer Overflow, Exploit Development, Cybersecurity",
+      "reportUrl": "https://drive.google.com/file/d/1tZV2wsCMq0eJWH9uEyJnVl0EkCACb_Ix/view?usp=sharing",
+      "description": "This lab investigated buffer overflow vulnerabilities by exploiting a vulnerable Set-UID program and redirecting program control flow to gain elevated privileges.",
+      "category": "Cyber Security"
+    },
+    {
+      "title": "Format String Vulnerabilities (Remote Root Shell and Patch)",
+      "tech": "Format String Vulnerability, Memory Disclosure, Secure Coding",
+      "reportUrl": "https://drive.google.com/file/d/1oL7JXiVtWBOuDClDhy82XnYk22PF6txr/view?usp=sharing",
+      "description": "This lab demonstrated a format string vulnerability caused by passing user input directly to printf() as the format string, enabling memory disclosure and unsafe writes.",
+      "category": "Cyber Security"
+    },
+    {
+      "title": "Decision Support System for Efficient Travel",
+      "tech": "DSS, AI, Real-time Data Sources",
+      "reportUrl": "https://drive.google.com/file/d/1pEZE6_DUmfl5vnxT4qRoOc5jzNzO5LB4/view?usp=sharing",
+      "description": "This project designed a DSS to assist travelers in optimizing their journey from Copenhagen Airport to Karlskrona. It considered cost, time, and ease of travel.",
+      "category": "AI/ML"
+    },
+    {
+      "title": "Decision Support System for Port Traffic Management",
+      "tech": "Predictive Modeling, Traffic Optimization",
+      "reportUrl": "https://drive.google.com/file/d/1qZsvdnM0FFDniLjt3ryJbGknYjSqXiVP/view?usp=sharing",
+      "description": "A decision support system was proposed to optimize pre-gate parking at small EU ports. The system focused on improving traffic flow and integrating predictive models.",
+      "category": "AI/ML"
+    },
+    {
+      "title": "Digitalization for Port Traffic Management",
+      "tech": "Data Analytics, Queuing Theory, Predictive Modeling",
+      "reportUrl": "https://drive.google.com/file/d/1SZMsrIGcyjlUvU-TkN_1jix4OB5jEmKg/view?usp=sharing",
+      "description": "This project develops a Decision Support System (DSS) to optimize pre-gate parking at small EU ports. Using data analytics, queuing theory, and predictive modeling.",
+      "category": "AI/ML"
+    },
+    {
+      "title": "All-at-Once Clone Detector",
+      "tech": "Docker, MongoDB, Scaling, Data Engineering",
+      "reportUrl": "https://drive.google.com/file/d/1B1ePl9rt04-5ajvt06xgliJZGshzNo-k/view?usp=sharing",
+      "codeUrl": "https://drive.google.com/drive/folders/1nLvNNDr12bIwlZzluJO9m2MxYgD6hEvf?usp=sharing",
+      "description": "This project executed an all-at-once clone detection pipeline on the full Qualitas Corpus using Docker and MongoDB for scalable storage.",
+      "category": "Cloud Computing"
+    },
+    {
+      "title": "Analysis of Android Ransomware",
+      "tech": "Android Malware Analysis, Reverse Engineering",
+      "reportUrl": "https://drive.google.com/file/d/1nZ3OdZbaiTdhmZ2uw9wNuspCcg0Vt9q_/view?usp=sharing",
+      "description": "A comprehensive analysis of Android ransomware applications, including encryption mechanisms, installation methods, and decryption techniques.",
+      "category": "Cyber Security"
+    },
+    {
+      "title": "DLL Side-Loading Analysis on Google Updater",
+      "tech": "Reverse Engineering, Malware Analysis, Windows Security",
+      "reportUrl": "https://drive.google.com/file/d/1uL2f28v215cGXOaLFtzmDJsMbFsfW7nu/view?usp=sharing",
+      "description": "This assignment analyzed a DLL side-loading attack flow where a malicious DLL is placed so a legitimate executable loads it during Windows DLL search order.",
+      "category": "Cyber Security"
+    },
+    {
+      "title": "Signature-based Detection with YARA (EICAR Test Files)",
+      "tech": "YARA, Signature Detection, Malware Rules",
+      "reportUrl": "https://drive.google.com/file/d/12dk5y0-0BsrUU0bSbnGrMWTajhCN_VEE/view?usp=sharing",
+      "description": "This assignment developed and tested a YARA rule to detect the EICAR test file and its compressed variants while avoiding false positives.",
+      "category": "Cyber Security"
+    },
+    {
+      "title": "Phishing URL Analysis and Comparison with Clean Websites",
+      "tech": "URL Analysis, Phishing Detection, OSINT",
+      "reportUrl": "https://docs.google.com/spreadsheets/d/198zYAXEdwyO-z6M5pg4yvgISTOi5K7CZ/edit?usp=sharing",
+      "description": "This assignment analyzed 59 phishing URLs and 69 clean URLs by collecting domain/IP metadata such as registrar, lifetime, and hosting country.",
+      "category": "Cyber Security"
+    },
+    {
+      "title": "Assignment: Analysis of Web Exploits",
+      "tech": "Script Deobfuscation, Exploit Analysis, CVE Identification",
+      "reportUrl": "https://drive.google.com/file/d/1FQQXacCpZfqsdPZ7805ZuxgbBxtDtrxo/view?usp=sharing",
+      "description": "This assignment analyzed multiple real-world web exploit samples by deobfuscating scripts, extracting malicious URLs, and identifying the vulnerabilities (CVEs) used for exploitation.",
+      "category": "Cyber Security"
+    },
+    {
+      "title": "Unpacking Morphine",
+      "tech": "Dynamic Unpacking, Memory Dumping, Reverse Engineering",
+      "reportUrl": "https://drive.google.com/file/d/1DzGm_KrqENLkXnBDf4nWumBGOzqW3Jvi/view?usp=sharing",
+      "description": "This assignment performed dynamic unpacking of Morphine-protected samples by tracing the stub to the Original Entry Point (OEP), dumping the process memory, rebuilding the Import Address Table (IAT).",
+      "category": "Cyber Security"
+    }
+  ],
+  "certifications": [
+    {
+      "title": "Certified Ethical Hacker (CEH)",
+      "issuer": "EC-Council",
+      "icon": "shield"
+    },
+    {
+      "title": "Natural Language Processing in Microsoft Azure",
+      "issuer": "Microsoft",
+      "icon": "brain"
+    },
+    {
+      "title": "Certified Software Engineer",
+      "issuer": "JP Morgan",
+      "icon": "code"
+    }
+  ],
+  "achievements": [
+    {
+      "title": "Gold Medal in Cancer Awareness Running Event",
+      "description": "Honored with a Gold Medal in a running event during a cancer awareness campaign.",
+      "icon": "medal"
+    },
+    {
+      "title": "50% Merit Scholarship at BTH Sweden",
+      "description": "Awarded 50% Merit Scholarship for Master's degree in Computer Engineering at Blekinge Institute of Technology, Sweden.",
+      "icon": "award"
+    },
+    {
+      "title": "Research Paper on Medical Imaging Security",
+      "description": "Authored a research paper titled 'A Steganographic Approach for Medical Imaging', enhancing image quality and security.",
+      "icon": "file"
+    },
+    {
+      "title": "Research Paper on AI Construction Optimization",
+      "description": "Published 'AI-driven Optimization Framework for Construction Site Ecosystems', exploring predictive analytics and real-time decision making.",
+      "icon": "file"
+    }
+  ],
+  "extracurricular": [
+    {
+      "title": "Best Team Management Leader",
+      "description": "Recognized at the Job Mela hosted by JNTUHCEH, exemplifying exceptional leadership, team coordination, and organizational expertise.",
+      "icon": "users"
+    },
+    {
+      "title": "Cultural Event Coordinator in Karlskrona",
+      "description": "Managed audience coordination for an Indian cultural event at Karlskrona Konserthusteater, ensuring smooth entry, seating, engagement and exit.",
+      "icon": "star"
+    },
+    {
+      "title": "Thesis Presentations at SAP, SFU & Stanford",
+      "description": "Representing institution by conducting Master's thesis presentations at SAP, SFU and Stanford, fostering cross-institutional collaboration.",
+      "icon": "presentation"
+    },
+    {
+      "title": "Freelance Full-Stack Web Development",
+      "description": "Designed and developed a complete full-stack portfolio website for a client as a freelance project, delivering a polished and responsive web experience.",
+      "icon": "code",
+      "link": "https://portfolio-eight-pied-59.vercel.app/"
+    }
+  ]
+}
