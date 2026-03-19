@@ -80,7 +80,7 @@ export default function Preloader({ onComplete }) {
     const t = setTimeout(() => {
       setPhase(PHASE.TEXT_CYCLE);
       setCurrentWordIndex(0);
-    }, 400);
+    }, 800);
     return () => clearTimeout(t);
   }, [phase]);
 
@@ -89,7 +89,7 @@ export default function Preloader({ onComplete }) {
     if (phase !== PHASE.TEXT_CYCLE) return;
 
     const isLast = currentWordIndex === introWords.length - 1;
-    const displayDuration = isLast ? 1000 : 600;
+    const displayDuration = isLast ? 1800 : 1200;
 
     const t = setTimeout(() => {
       if (isLast) {

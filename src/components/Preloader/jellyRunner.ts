@@ -909,11 +909,11 @@ let bindGroups = createBindGroups();
 
 let animationFrameHandle: number;
 let elapsedTime = 0;
-const ANIM_DURATION = 4.0;
+const ANIM_DURATION = 2.0;
 const MOUSE_MIN = 0.45;
 const MOUSE_MAX = 0.9;
 let holdTimer = 0;
-const HOLD_AT_100 = 0.8;
+const HOLD_AT_100 = 0.1;
 let done = false;
 
 function easeOutExpo(t: number): number {
@@ -935,7 +935,7 @@ function render(timestamp: number) {
   const easedProgress = easeOutExpo(progress);
   const simulatedMouseX = MOUSE_MIN + (MOUSE_MAX - MOUSE_MIN) * easedProgress;
 
-  if (progress >= 1 && !done) {
+  if (easedProgress >= 0.99 && !done) {
     holdTimer += deltaTime;
     if (holdTimer >= HOLD_AT_100) {
       done = true;

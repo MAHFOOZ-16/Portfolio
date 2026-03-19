@@ -45,7 +45,7 @@ export default function ScrollyHero() {
   const canvasRef = useRef(null);
   const imagesRef = useRef([]);
   const [imagesLoaded, setImagesLoaded] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [_IsMobile, setIsMobile] = useState(false);
   const currentFrameRef = useRef(0);
 
   useEffect(() => {
@@ -183,8 +183,6 @@ export default function ScrollyHero() {
 
   // Scroll hint
   const scrollHintOpacity = useTransform(scrollYProgress, [0, 0.06], [1, 0]);
-
-  if (isMobile) return <MobileHero />;
 
   return (
     <section ref={containerRef} className="scrolly-container" id="home">

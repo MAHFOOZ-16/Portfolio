@@ -378,16 +378,16 @@
     padding: 0 6% 4vh;
   }
 
-  /* Section 3: bottom-right on mobile, sitting in the dark zone */
+  /* Section 3: right-aligned in the dark shadow zone on mobile */
   .scrolly-overlay--s3 {
     align-items: flex-end;
     justify-content: flex-end;
-    padding: 0 5% 25vh 0;
+    padding: 0 5% 12vh 0;
   }
 
   .scrolly-overlay--s3 .scrolly-block {
     text-align: right;
-    max-width: 65%;
+    max-width: 70%;
   }
 
   .scrolly-overlay--s3 .scrolly-block-tags {
