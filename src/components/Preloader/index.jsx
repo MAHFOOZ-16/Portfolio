@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import { initJellySlider } from './jellyRunner';
 import './style.css';
 
 const slideUp = {
@@ -47,7 +46,7 @@ export default function Preloader({ onComplete }) {
     return () => clearTimeout(fallback);
   }, [phase]);
 
-  // Phase 1: Jelly slider
+  // Phase 1: Jelly slider (dynamic import to avoid crashing the bundle if WebGPU is unavailable)
   useEffect(() => {
     let cancel = null;
     let isMounted = true;
@@ -56,6 +55,8 @@ export default function Preloader({ onComplete }) {
       hasInitRef.current = true;
       (async () => {
         try {
+          if (!isMounted || !canvasRef.current) return;
+          const { initJellySlider } = await import('./jellyRunner');
           if (!isMounted || !canvasRef.current) return;
           cancel = await initJellySlider(canvasRef.current, () => {
             if (isMounted) setPhase(PHASE.FADE_OUT);
