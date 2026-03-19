@@ -1,4 +1,4 @@
-import { useScroll, useTransform, useSpring, useInView } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { Briefcase, Calendar, Shield, Code, Target } from 'lucide-react';
 import portfolioData from '../../data/portfolio_content.json';

@@ -1,4 +1,4 @@
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Shield, Target, Code, Download } from 'lucide-react';
 import portfolioData from '../../data/portfolio_content.json';

@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
-import { useInView, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Trophy, Award, Medal, Shield, Brain, Code, FileText, Users, Star, Presentation } from 'lucide-react';
 import portfolioData from '../../data/portfolio_content.json';
 import './Achievements.css';

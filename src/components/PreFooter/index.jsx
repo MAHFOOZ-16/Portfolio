@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import portfolioData from '../../data/portfolio_content.json';
 import LetsConnectCanvas from './LetsConnectCanvas';
 import './PreFooter.css';

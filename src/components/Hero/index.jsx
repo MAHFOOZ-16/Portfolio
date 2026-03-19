@@ -1,4 +1,5 @@
 import { Mail, Github, Linkedin, Phone, Download } from 'lucide-react';
+import { motion } from 'framer-motion';
 import portfolioData from '../../data/portfolio_content.json';
 import HeroExperience from './HeroExperience';
 import GradientSpheres from './GradientSpheres';

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Code2, Globe } from 'lucide-react';
 import { ErrorBoundary } from 'react-error-boundary';
 import portfolioData from '../../data/portfolio_content.json';

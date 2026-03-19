@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 
 export default function ChatBubble({ onClick }) {

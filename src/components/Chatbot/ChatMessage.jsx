@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { Bot } from 'lucide-react';
 
 export default function ChatMessage({ message, index }) {
