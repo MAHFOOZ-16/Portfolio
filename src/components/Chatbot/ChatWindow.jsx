@@ -68,7 +68,7 @@ export default function ChatWindow({ messages, isTyping, error, onSend, onClose 
       </div>
 
       {/* Messages Area */}
-      <div className="chat-window__messages">
+      <div className="chat-window__messages" data-lenis-prevent>
         {/* Welcome message */}
         {showStarters && (
           <div className="chat-window__welcome">
