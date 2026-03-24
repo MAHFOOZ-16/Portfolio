@@ -28,68 +28,44 @@ const portfolioData = {
     "bucket_list": ["Travel the world", "Try paragliding"]
   },
   "skills": {
-    "languages": ["C", "C++", "C#", "SQL", "Java", "HTML", "CSS", ".NET", "Matlab", "LaTeX", "Rust", "English", "Swedish (Learning)"],
+    "languages": ["C", "C++", "C#", "SQL", "Java", "Python", "HTML", "CSS", ".NET", "Matlab", "LaTeX", "Rust", "English", "Swedish (Learning)"],
     "libraries": ["Pandas", "NumPy", "React", "Matplotlib"],
     "frameworks": ["TensorFlow", "Keras", "Scikit-learn", "RAG", "NLTK", "spaCy", "LightGBM", "Ollama", "LangChain"],
+    "tools": ["Maltego", "Nmap", "Sqlmap", "Burp Suite", "Hydra", "Rightway", "Rheino"],
     "os": ["Windows", "Mac OS", "Linux", "Parrot", "Ubuntu", "Git"],
     "learning": ["Video Editing"]
   },
-  "education": [
-    { "institution": "Blekinge Institute of Technology", "location": "Karlskrona, Sweden", "degree": "Master's Degree in Computer Science", "period": "January 2024 - February 2026" },
-    { "institution": "Jawaharlal Nehru Technological University", "location": "Hyderabad, India", "degree": "Bachelor's Degree in Computer Science Engineering", "period": "December 2020 - December 2023" }
-  ],
   "projects": [
-    { "title": "AI-driven Optimization Framework for Construction Site Ecosystem", "links": { "Report": "https://drive.google.com/file/d/1rTMU8qmwuRaANLSF43rEeqFTCfgv_eNK/view?usp=drive_link", "Code": "https://drive.google.com/drive/folders/1FbRNJSgoDuYKoLgRKgbIsTGVizxiRWGz?usp=sharing" } },
-    { "title": "Software Metrics Report on Object-Oriented Metrics", "links": { "Report": "https://drive.google.com/file/d/1ZMCjRgwNKLf36TZ1uNd_rNXI_GKn9E0q/view?usp=sharing" } },
-    { "title": "Lucene Software Metrics Analysis", "links": { "Report": "https://drive.google.com/file/d/1YE4BwqlS8QRTuWvWhLi6tCqMjknmImdr/view?usp=sharing" } },
-    { "title": "Steganography in Medical Imaging", "links": { "Report": "https://drive.google.com/file/d/1S2Lhd6msLb1jZKAGS48al2emB2b7XWRr/view?usp=sharing" } },
-    { "title": "Research Methodology for Medical Imaging", "links": { "Report": "https://drive.google.com/file/d/1qTRtGw_Iw7azBpQE2PLQU3A8csBlTTl_/view?usp=sharing" } },
-    { "title": "A Steganographic Approach for Medical Imaging", "links": { "Report": "https://drive.google.com/file/d/1nr2QI52Onl25zR4iTzIyid1ZkBkxejwj/view?usp=sharing" } },
-    { "title": "Securing LLM Chatbots", "links": { "Report": "https://drive.google.com/file/d/1XqtRpymm6fGKIwTURKpUm0tkbSsmgPt2/view?usp=sharing" } },
-    { "title": "Security and Quality Trade-offs", "links": { "Report": "https://drive.google.com/file/d/1b2wQHs2xwnptSuvfHjUWHZdKY-6QYiuX/view?usp=sharing" } },
-    { "title": "Threat modeling and risk analysis for LLM-based architecture", "links": { "Spreadsheet": "https://docs.google.com/spreadsheets/d/1G7ztPGFFmqCdE12iI2wVEsZeR468OJ0K/edit?usp=sharing" } },
-    { "title": "Maze Navigation with Genetic Algorithms", "links": { "Report": "https://drive.google.com/file/d/1_H24oTXW9FhI8eHqMzvYI1Z00L9UtQSA/view?usp=sharing" } },
-    { "title": "Traveling Salesman Problem Using Genetic Algorithm", "links": { "Report": "https://drive.google.com/file/d/1SdIN_-BaiHzMiOV-dbc3KtkOjdCURQ8c/view?usp=sharing" } },
-    { "title": "Barcode Encoding and Decoding Using Computer Vision", "links": { "Report": "https://drive.google.com/file/d/1XnTY5smWz1gnHDwfPDAsQ8gMO7Z9hq4o/view?usp=drive_link" } },
-    { "title": "Reverse Engineering x86 Assembly Code", "links": { "Report": "https://drive.google.com/file/d/1XeFFXVa2Xk-xAotGa7lCofr_nQF8s11c/view?usp=sharing" } },
-    { "title": "Set-User-ID and Security in Linux", "links": { "Report": "https://drive.google.com/file/d/1XmKJBgtuL6oqdmfvduXQqVqucsMQILna/view?usp=sharing" } },
-    { "title": "Environment Variables and System Behavior", "links": { "Report": "https://drive.google.com/file/d/1elGCYfZ9fRX6dv25mq5zfZ-aQ26rUcUS/view?usp=sharing" } },
-    { "title": "Buffer Overflow Exploit (Set-UID Privilege Escalation)", "links": { "Report": "https://drive.google.com/file/d/1tZV2wsCMq0eJWH9uEyJnVl0EkCACb_Ix/view?usp=sharing" } },
-    { "title": "Format String Vulnerabilities (Remote Root Shell and Patch)", "links": { "Report": "https://drive.google.com/file/d/1oL7JXiVtWBOuDClDhy82XnYk22PF6txr/view?usp=sharing" } },
-    { "title": "Decision Support System for Efficient Travel", "links": { "Report": "https://drive.google.com/file/d/1pEZE6_DUmfl5vnxT4qRoOc5jzNzO5LB4/view?usp=sharing" } },
-    { "title": "Decision Support System for Port Traffic Management", "links": { "Report": "https://drive.google.com/file/d/1qZsvdnM0FFDniLjt3ryJbGknYjSqXiVP/view?usp=sharing" } },
-    { "title": "Digitalization for Port Traffic Management", "links": { "Report": "https://drive.google.com/file/d/1SZMsrIGcyjlUvU-TkN_1jix4OB5jEmKg/view?usp=sharing" } },
-    { "title": "Bookstore Full Stack Web Development", "links": { "Report": "https://drive.google.com/file/d/1335sd3WfGd4NPGGNxZ_rCR2kHIMxrnog/view?usp=sharing", "Video": "https://drive.google.com/file/d/19lLh3N3GpXb5TKwQ7hY006Qc5oK--zzP/view?usp=sharing" } },
-    { "title": "Knowledge Distillation for Neural Network Compression (CIFAR-10)", "links": { "Report": "https://drive.google.com/file/d/11v3eA0eP1l6a1RXXHrUk9DBVpOUJlWBg/view?usp=sharing" } },
-    { "title": "AI-Powered Electronic Device Recognition System for E-Waste Recycling", "links": { "Report": "https://drive.google.com/file/d/1cTGTCvhCfixYGY7wvaqMIIkYtACVsBpx/view?usp=sharing" } },
-    { "title": "All-at-Once Clone Detector: Qualitas Corpus Monitoring", "links": { "Report": "https://drive.google.com/file/d/1B1ePl9rt04-5ajvt06xgliJZGshzNo-k/view?usp=sharing", "Code": "https://drive.google.com/drive/folders/1nLvNNDr12bIwlZzluJO9m2MxYgD6hEvf?usp=sharing" } },
-    { "title": "Analysis of Android Ransomware", "links": { "Report": "https://drive.google.com/file/d/1nZ3OdZbaiTdhmZ2uw9wNuspCcg0Vt9q_/view?usp=sharing" } },
-    { "title": "DLL Side-Loading Analysis on Google Updater", "links": { "Report": "https://drive.google.com/file/d/1uL2f28v215cGXOaLFtzmDJsMbFsfW7nu/view?usp=sharing" } },
-    { "title": "Signature-based Detection with YARA (EICAR)", "links": { "Report": "https://drive.google.com/file/d/12dk5y0-0BsrUU0bSbnGrMWTajhCN_VEE/view?usp=sharing" } },
-    { "title": "Phishing URL Analysis and Comparison with Clean Websites", "links": { "Spreadsheet": "https://docs.google.com/spreadsheets/d/198zYAXEdwyO-z6M5pg4yvgISTOi5K7CZ/edit?usp=sharing" } },
-    { "title": "Analysis of Web Exploits", "links": { "Report": "https://drive.google.com/file/d/1FQQXacCpZfqsdPZ7805ZuxgbBxtDtrxo/view?usp=sharing" } },
-    { "title": "Unpacking Morphine (Recover OEP, Dump, Rebuild IAT)", "links": { "Report": "https://drive.google.com/file/d/1DzGm_KrqENLkXnBDf4nWumBGOzqW3Jvi/view?usp=sharing" } }
-  ]
+    { "title": "Marknaden Sweden", "tech": "Full Stack", "link": "https://marknaden-sweden.azurewebsites.net/", "description": "Live e-commerce marketplace platform for the Swedish market. Demonstrates full-stack scalability." },
+    { "title": "AR Gesture Controlled Threat Shooter", "tech": "MediaPipe, OpenCV, TensorFlow.js", "link": "https://ar-game-sigma.vercel.app/", "description": "Cross-platform AR shooter using real-time hand tracking. 70% precision improvement through adaptive smoothing." },
+    { "title": "Auto Apply Sweden", "tech": "Python, Automation", "link": "https://github.com/MAHFOOZ-16/auto-apply-sweden", "description": "Automated job application system for the Swedish market." },
+    { "title": "Bookstore MERN App", "tech": "MongoDB, Express, React, Node.js", "link": "https://bookstore-frontend.purplerock-c1391855.swedencentral.azurecontainerapps.io/", "description": "Full-stack bookstore management, containerized with Docker and Kubernetes." },
+    { "title": "AI-driven Optimization Framework (Volvo)", "links": { "Report": "https://drive.google.com/file/d/1rTMU8qmwuRaANLSF43rEeqFTCfgv_eNK/view", "Code": "https://github.com/MAHFOOZ-16/volvo_final" }, "description": "AI framework for Volvo CE site optimization, reducing downtime by 20%." },
+    { "title": "Steganography in Medical Imaging", "links": { "Report": "https://drive.google.com/file/d/1S2Lhd6msLb1jZKAGS48al2emB2b7XWRr/view" }, "description": "Research on securing medical images using steganography (LSB, DWT)." },
+    { "title": "Securing LLM Chatbots", "links": { "Report": "https://drive.google.com/file/d/1XqtRpymm6fGKIwTURKpUm0tkbSsmgPt2/view" }, "description": "Mitigating prompt injection and securing LLM outputs." },
+    { "title": "Maze Navigation (Genetic Algorithms)", "links": { "Report": "https://drive.google.com/file/d/1_H24oTXW9FhI8eHqMzvYI1Z00L9UtQSA/view" }, "description": "Pathfinding using evolutionary strategies." },
+    { "title": "Reverse Engineering x86 Lab", "links": { "Report": "https://drive.google.com/file/d/1XeFFXVa2Xk-xAotGa7lCofr_nQF8s11c/view" }, "description": "Translating assembly to high-level pseudocode and analyzing memory." },
+    { "title": "Buffer Overflow Exploit", "links": { "Report": "https://drive.google.com/file/d/1tZV2wsCMq0eJWH9uEyJnVl0EkCACb_Ix/view" }, "description": "Privilege escalation through control flow redirection." },
+    { "title": "All-at-Once Clone Detector", "links": { "Code": "https://drive.google.com/drive/folders/1nLvNNDr12bIwlZzluJO9m2MxYgD6hEvf" }, "description": "Scalable software clone detection using Docker and MongoDB." }
+  ],
+  "experience_summary": "Researcher at Volvo CE (SUGAR program), AI Intern at PwC Zurich, Cybersecurity Intern at Entersoft Labs, Full Stack Intern at IIT Kanpur."
 };
 
 export function buildSystemPrompt() {
-  return `You are Valerio, the AI assistant embedded in Ahmed Mahfooz Ali Khan's portfolio website. You help visitors learn about Ahmed's background, skills, projects, experience, and personality.
+  return `You are Valerio, Ahmed Mahfooz Ali Khan's personal AI assistant. You have full access to his background, projects, and personal favorites.
 
 PERSONALITY:
-- Professional yet approachable, friendly, and calm (like Ahmed).
-- Enthusiastic about projects without being "salesy".
-- Concise (2-4 sentences) but detailed if asked.
+- Professional, approachable, and creative.
+- Brief but helpful responses (2-4 sentences).
 
-KNOWLEDGE AREAS:
-1. PERSONAL: Ahmed is an ambivert, creative, and ambitious person. He loves tea, autumn, and cats. He's motivated by leaving a legacy.
-2. INTERESTS: He enjoys Snooker, Swimming, Cricket, and the Gym. Favorite movies include 3 Idiots and The Dark Knight Rises.
-3. PROJECTS: He has built 36+ projects in AI/ML, Cybersecurity, and Full Stack. 
-4. LINKS: If a user asks for a project report or code, provide the Google Drive link from the data.
+KNOWLEDGE:
+1. PROJECTS: You know about 36+ projects. Most notable: Marknaden Sweden (E-commerce), AR Game (Gesture control), and Volvo AI Framework. 
+2. PERSONAL: Hobbies (Snooker, Gym), Favorites (Movies: 3 Idiots, Food: Biryani), and Skills (AI, Cyber, Full Stack).
+3. RESUME: You know Ahmed's experience at Volvo, PwC, Entersoft, and IIT Kanpur.
 
-RULES:
-- If asked about hobbies/food/movies, answer based on the data.
-- If asked for technical details of a project, use the project descriptions in the context.
-- Keep responses conversational.
+SPECIFIC ANSWERS:
+- If asked about "Marknaden": It's his live e-commerce platform for Sweden.
+- If asked for code/reports: Provide the specific GitHub or Google Drive links from the data.
 
 AHMED'S DATA:
 ${JSON.stringify(portfolioData, null, 2)}
