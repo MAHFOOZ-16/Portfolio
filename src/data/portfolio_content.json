@@ -4,7 +4,28 @@
     "phone": "+46 762467093",
     "email": "ahmedmahfooz2me@gmail.com",
     "linkedin": "https://www.linkedin.com/in/ahmed-mahfooz-ali-khan-740ab4257/",
-    "github": "https://github.com/MAHFOOZ-16"
+    "github": "https://github.com/MAHFOOZ-16",
+    "description": "Ambitious, Calm, Creative",
+    "personality": "Ambivert",
+    "motivation": "Leaving a legacy",
+    "habit": "Learning every day",
+    "morning_or_night": "Depends on the day",
+    "relax": "Warm showers and listening to music",
+    "dream_destinations": ["Switzerland", "Greece", "Spain", "Canada"],
+    "quote": "Growth begins outside your comfort zone",
+    "season": "Autumn",
+    "tea_or_coffee": "Tea",
+    "mountains_or_beaches": "Depends on the mood",
+    "pets": "Cats",
+    "colors": ["Black", "White"]
+  },
+  "interests": {
+    "hobbies": ["Snooker", "Bowling", "Swimming", "Cricket", "Football", "Badminton", "Gym"],
+    "movies": ["The Dark Knight Rises", "The Hangover", "Spider-Man: No Way Home", "3 Idiots", "Zindagi Na Milegi Dobara", "KGF"],
+    "books": ["Wildfire", "Do It Today"],
+    "food": ["Biryani", "Pho", "Noodles", "Pasta", "Burgers"],
+    "series": ["Money Heist", "Peaky Blinders", "Prison Break"],
+    "bucket_list": ["Travel the world", "Try paragliding"]
   },
   "skills": {
     "languages": [
