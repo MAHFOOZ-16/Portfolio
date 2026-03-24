@@ -48,7 +48,12 @@ const portfolioData = {
     { "title": "Buffer Overflow Exploit", "links": { "Report": "https://drive.google.com/file/d/1tZV2wsCMq0eJWH9uEyJnVl0EkCACb_Ix/view" }, "description": "Privilege escalation through control flow redirection." },
     { "title": "All-at-Once Clone Detector", "links": { "Code": "https://drive.google.com/drive/folders/1nLvNNDr12bIwlZzluJO9m2MxYgD6hEvf" }, "description": "Scalable software clone detection using Docker and MongoDB." }
   ],
-  "experience_summary": "Researcher at Volvo CE (SUGAR program), AI Intern at PwC Zurich, Cybersecurity Intern at Entersoft Labs, Full Stack Intern at IIT Kanpur."
+  "experience": [
+    { "title": "Artificial Intelligence Master Thesis", "company": "Volvo Construction Equipment", "location": "Gothenburg, Sweden", "period": "Dec 2024 - June 2025", "bullets": ["Spearheaded research under SUGAR program focusing on AI methodologies.", "Devised AI service model cutting downtime by 20% and improved asset integration.", "Built RAG prototype with PostgreSQL.", "Presented in Sao Paulo (Brazil) and Silicon Valley (USA)."] },
+    { "title": "Artificial Intelligence Internship", "company": "PwC", "location": "Zurich, Switzerland", "period": "July 2024 - Sept 2024", "bullets": ["Built Python classification models improving decision accuracy by 30% using GenAI.", "Analyzed 60% data for adverse effects and contributed to client data strategy.", "Refined data processes through advanced feature engineering."] },
+    { "title": "Cyber Security Internship", "company": "Entersoft Labs", "location": "Hyderabad, India", "period": "May 2024 - July 2024", "bullets": ["Conducted Behavioral Analysis and System Testing, reducing attack vectors by 25%.", "Monitored traffic using SIEM tools, contributing to threat detection by 40%.", "Utilized Burp Suite, OWASP ZAP and Metasploit to assess vulnerabilities."] },
+    { "title": "Full Stack Web Development Internship", "company": "IIT Kanpur", "location": "Kanpur, India", "period": "Oct 2023 - Dec 2023", "bullets": ["Engineered robust API using Node.js, Express.js and MongoDB, reducing response time by 40%.", "Implemented JWT-based authentication reducing unauthorized access by 50%.", "Deployed containerized services to Azure via CI/CD and Terraform."] }
+  ],
 };
 
 export function buildSystemPrompt() {
@@ -65,7 +70,8 @@ KNOWLEDGE:
 
 SPECIFIC ANSWERS:
 - If asked about "Marknaden": It's his live e-commerce platform for Sweden.
-- If asked for code/reports: Provide the specific GitHub or Google Drive links from the data.
+- Always use Markdown for links: [Link Name](URL). E.g., [Marknaden Sweden](https://marknaden-sweden.azurewebsites.net/)
+- Provide specific links (GitHub or Drive) for every project mentioned.
 
 AHMED'S DATA:
 ${JSON.stringify(portfolioData, null, 2)}
