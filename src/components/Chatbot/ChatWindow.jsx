@@ -7,7 +7,7 @@ const STARTER_QUESTIONS = [
   "What are Ahmed's key skills?",
   "Tell me about his work experience",
   "What projects has he built?",
-  "What certifications does he hold?",
+  "What are Ahmed's favorite movies?",
 ];
 
 export default function ChatWindow({ messages, isTyping, error, onSend, onClose }) {
@@ -76,7 +76,7 @@ export default function ChatWindow({ messages, isTyping, error, onSend, onClose 
               <Sparkles size={28} />
             </div>
             <h4>Hey there! I'm Valerio</h4>
-            <p>Ahmed's AI assistant. Ask me anything about his skills, projects, or experience!</p>
+            <p>Ahmed's AI assistant. Ask me anything about his skills, projects, experience, or interests!</p>
 
             <div className="chat-window__starters">
               {STARTER_QUESTIONS.map((q) => (
