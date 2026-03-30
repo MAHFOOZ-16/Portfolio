@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Code2, Globe } from 'lucide-react';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -7,6 +8,8 @@ import ComputersCanvas from '../canvas/ComputersCanvas';
 import './Projects.css';
 
 const ProjectCard = ({ project }) => {
+  const categorySlug = project.category ? project.category.toLowerCase().replace(/\s+/g, '-') : 'general';
+  
   return (
     <motion.div
       layout
@@ -43,9 +46,15 @@ const ProjectCard = ({ project }) => {
             </a>
           )}
           {project.reportUrl && (
-            <a href={project.reportUrl} target="_blank" rel="noopener noreferrer" className="project-link">
-              <ExternalLink size={16} /> View Report
-            </a>
+            project.slug ? (
+              <Link to={`/projects/${categorySlug}/${project.slug}`} className="project-link highlight-report">
+                <ExternalLink size={16} /> Summary
+              </Link>
+            ) : (
+              <a href={project.reportUrl} target="_blank" rel="noopener noreferrer" className="project-link">
+                <ExternalLink size={16} /> View Report
+              </a>
+            )
           )}
           {project.codeUrl && (
             <a href={project.codeUrl} target="_blank" rel="noopener noreferrer" className="project-link">

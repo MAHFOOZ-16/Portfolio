@@ -172,6 +172,19 @@
   border-color: #fff;
 }
 
+.project-link.highlight-report {
+  background: linear-gradient(135deg, var(--accent-color) 0%, #6c5ce7 100%);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+}
+
+.project-link.highlight-report:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
+  filter: brightness(1.1);
+}
+
 /* Project Categories Tabs */
 .project-categories {
   display: flex;
