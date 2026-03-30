@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Code2, Globe } from 'lucide-react';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -77,8 +77,21 @@ const ProjectCard = ({ project }) => {
 export default function Projects() {
   const { projects } = portfolioData;
   const [activeCategory, setActiveCategory] = useState('All');
+  const location = useLocation();
 
   const uniqueCategories = [...new Set(projects.map(p => p.category).filter(Boolean))];
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const catQuery = queryParams.get('category');
+    if (catQuery) {
+      const match = uniqueCategories.find(c => 
+        c.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') === catQuery
+      );
+      if (match) setActiveCategory(match);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.search]);
   const sortedCategories = uniqueCategories.sort((a, b) => {
     if (a === 'Other') return 1;
     if (b === 'Other') return -1;

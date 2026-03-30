@@ -1,5 +1,10 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate, useParams } from 'react-router-dom';
+
+const CategoryRedirect = () => {
+  const { category } = useParams();
+  return <Navigate to={`/?category=${category}#projects`} replace />;
+};
 import Lenis from 'lenis';
 import { AnimatePresence } from 'framer-motion';
 import Preloader from './components/Preloader';
@@ -98,8 +103,10 @@ function App() {
         {!isLoading && (
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<Navigate to="/#projects" replace />} />
+            <Route path="/projects/:category" element={<CategoryRedirect />} />
             <Route path="/projects/:category/:slug" element={<ProjectDetail />} />
-            <Route path="*" element={<Home />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         )}
       </main>
