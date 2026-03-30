@@ -52,7 +52,7 @@ const ProjectDetail = () => {
                         <ArrowLeft size={18} /> Back to Portfolio
                     </Link>
                     <div className="breadcrumbs">
-                        <Link to="/#projects" className="breadcrumb-link" style={{ color: 'inherit', fontWeight: 'inherit', display: 'inline', textDecoration: 'none' }} onMouseOver={(e) => e.target.style.color = 'var(--text-color)'} onMouseOut={(e) => e.target.style.color = 'inherit'}>
+                        <Link to="/#projects" className="breadcrumb-link">
                             Projects
                         </Link>
                         <ChevronRight size={14} />

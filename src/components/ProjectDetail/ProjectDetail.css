@@ -79,6 +79,16 @@
     text-overflow: ellipsis;
 }
 
+.breadcrumb-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb-link:hover {
+    color: var(--accent-color);
+}
+
 .breadcrumb-category {
     color: var(--accent-color);
     white-space: nowrap;
