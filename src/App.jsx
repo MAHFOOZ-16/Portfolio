@@ -17,7 +17,7 @@ import ProjectDetail from './components/ProjectDetail';
 
 // Helper component to handle scrolling and initialization
 const ScrollHandler = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
     // Only initialize Lenis for the main landing page
@@ -41,6 +41,17 @@ const ScrollHandler = () => {
       }
 
       requestAnimationFrame(raf);
+
+      if (hash) {
+        setTimeout(() => {
+          const element = document.querySelector(hash);
+          if (element) {
+            lenis.scrollTo(element, { offset: 0, duration: 1.2 });
+          }
+        }, 100);
+      } else {
+        window.scrollTo(0, 0);
+      }
     } else {
       // For detail pages, standard scroll is fine, but we must scroll to top
       window.scrollTo(0, 0);
@@ -49,7 +60,7 @@ const ScrollHandler = () => {
     return () => {
       if (lenis) lenis.destroy();
     };
-  }, [pathname]);
+  }, [pathname, hash]);
 
   return null;
 };
