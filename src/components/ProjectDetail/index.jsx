@@ -48,14 +48,10 @@ const ProjectDetail = () => {
             <main className="detail-container">
                 {/* Header / Breadcrumbs */}
                 <nav className="detail-nav">
-                    <Link to="/" className="nav-back-link">
-                        <ArrowLeft size={18} /> Back to Portfolio
-                    </Link>
+                    <a href="/#projects" className="nav-back-link">
+                        <ArrowLeft size={18} /> Back to Projects
+                    </a>
                     <div className="breadcrumbs">
-                        <Link to="/#projects" className="nav-back-link" style={{ color: 'inherit', fontWeight: 'inherit', display: 'inline' }}>
-                            Projects
-                        </Link>
-                        <ChevronRight size={14} />
                         <span className="breadcrumb-category">{project.category || 'General'}</span>
                         <ChevronRight size={14} />
                         <span className="current-page">{project.title}</span>
