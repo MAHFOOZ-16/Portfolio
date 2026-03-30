@@ -46,9 +46,10 @@ const ScrollHandler = () => {
         setTimeout(() => {
           const element = document.querySelector(hash);
           if (element) {
-            lenis.scrollTo(element, { offset: 0, duration: 1.2 });
+            // A slightly longer timeout ensures Framer Motion has expanded components
+            lenis.scrollTo(element, { offset: 0, duration: 1.5 });
           }
-        }, 100);
+        }, 400);
       } else {
         window.scrollTo(0, 0);
       }

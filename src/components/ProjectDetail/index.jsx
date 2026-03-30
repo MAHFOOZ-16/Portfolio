@@ -48,10 +48,14 @@ const ProjectDetail = () => {
             <main className="detail-container">
                 {/* Header / Breadcrumbs */}
                 <nav className="detail-nav">
-                    <a href="/#projects" className="nav-back-link">
-                        <ArrowLeft size={18} /> Back to Projects
-                    </a>
+                    <Link to="/" className="nav-back-link">
+                        <ArrowLeft size={18} /> Back to Portfolio
+                    </Link>
                     <div className="breadcrumbs">
+                        <Link to="/#projects" className="breadcrumb-link" style={{ color: 'inherit', fontWeight: 'inherit', display: 'inline', textDecoration: 'none' }} onMouseOver={(e) => e.target.style.color = 'var(--text-color)'} onMouseOut={(e) => e.target.style.color = 'inherit'}>
+                            Projects
+                        </Link>
+                        <ChevronRight size={14} />
                         <span className="breadcrumb-category">{project.category || 'General'}</span>
                         <ChevronRight size={14} />
                         <span className="current-page">{project.title}</span>
