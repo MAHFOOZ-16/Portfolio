@@ -87,6 +87,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/projects/:category/:slug" element={<ProjectDetail />} />
+            <Route path="*" element={<Home />} />
           </Routes>
         )}
       </main>

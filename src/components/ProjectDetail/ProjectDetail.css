@@ -74,15 +74,21 @@
     gap: 0.5rem;
     color: var(--text-muted);
     font-size: 0.875rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .breadcrumb-category {
     color: var(--accent-color);
+    white-space: nowrap;
 }
 
 .current-page {
     color: var(--text-main);
     font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Main Grid */
@@ -237,7 +243,8 @@
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
-    height: calc(100vh - 12rem);
+    height: calc(100vh - 9rem);
+    min-height: 650px;
 }
 
 .viewer-header {

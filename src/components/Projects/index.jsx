@@ -8,7 +8,9 @@ import ComputersCanvas from '../canvas/ComputersCanvas';
 import './Projects.css';
 
 const ProjectCard = ({ project }) => {
-  const categorySlug = project.category ? project.category.toLowerCase().replace(/\s+/g, '-') : 'general';
+  const categorySlug = project.category 
+    ? project.category.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') 
+    : 'general';
   
   return (
     <motion.div
@@ -47,8 +49,8 @@ const ProjectCard = ({ project }) => {
           )}
           {project.reportUrl && (
             project.slug ? (
-              <Link to={`/projects/${categorySlug}/${project.slug}`} className="project-link highlight-report">
-                <ExternalLink size={16} /> Summary
+              <Link to={`/projects/${categorySlug}/${project.slug}`} className="project-link">
+                <ExternalLink size={16} /> View Report
               </Link>
             ) : (
               <a href={project.reportUrl} target="_blank" rel="noopener noreferrer" className="project-link">

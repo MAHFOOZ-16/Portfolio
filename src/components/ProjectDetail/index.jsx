@@ -52,7 +52,9 @@ const ProjectDetail = () => {
                         <ArrowLeft size={18} /> Back to Portfolio
                     </Link>
                     <div className="breadcrumbs">
-                        <span>Projects</span>
+                        <Link to="/#projects" className="nav-back-link" style={{ color: 'inherit', fontWeight: 'inherit', display: 'inline' }}>
+                            Projects
+                        </Link>
                         <ChevronRight size={14} />
                         <span className="breadcrumb-category">{project.category || 'General'}</span>
                         <ChevronRight size={14} />
@@ -70,7 +72,7 @@ const ProjectDetail = () => {
                             className="sidebar-card"
                         >
                             <div className="project-type-tag">
-                                <FileText size={14} /> Official Report
+                                <FileText size={14} /> Report
                             </div>
                             <h1 className="detail-title">{project.title}</h1>
                             
@@ -96,21 +98,12 @@ const ProjectDetail = () => {
                                     navigator.clipboard.writeText(window.location.href);
                                     alert("Link copied to clipboard!");
                                 }}>
-                                    <Share2 size={18} /> Share Case Study
+                                    <Share2 size={18} /> Share Report
                                 </button>
                             </div>
                         </motion.div>
 
-                        {/* Additional Meta (Optional) */}
-                        <motion.div 
-                            initial={{ opacity: 0, x: -30 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6, delay: 0.4 }}
-                            className="sidebar-card small"
-                        >
-                            <h3>Classified Domain</h3>
-                            <p className="domain-url">ahmedmahfooz.com/projects/{category}/{slug}</p>
-                        </motion.div>
+
                     </aside>
 
                     {/* Viewer Section */}
@@ -133,12 +126,33 @@ const ProjectDetail = () => {
                                             title={project.title}
                                             className="pdf-iframe"
                                         />
+                                    ) : project.reportUrl.match(/\.(xlsx|xls|doc|docx|ppt|pptx)$/i) ? (
+                                        window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? (
+                                            <div className="no-viewer" style={{ textAlign: 'center', padding: '2rem' }}>
+                                                <FileText size={48} style={{ marginBottom: '1rem', opacity: 0.7 }} />
+                                                <p style={{ marginBottom: '1.5rem', maxWidth: '80%', lineHeight: '1.6' }}>
+                                                    <strong>Preview Not Available on Localhost</strong><br/><br/>
+                                                    Browsers cannot directly preview Excel files offline. The live document viewer will automatically work once you deploy your portfolio to the live internet.<br/><br/>
+                                                    <em>(Pro Tip: For the most professional portfolio experience, we highly recommend exporting your Excel reports to PDF before uploading them.)</em>
+                                                </p>
+                                                <a href={project.reportUrl} download className="download-btn" style={{ width: 'fit-content', margin: '0 auto' }}>
+                                                    <Download size={18} /> Download Asset
+                                                </a>
+                                            </div>
+                                        ) : (
+                                            <iframe 
+                                                src={`https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(window.location.origin + project.reportUrl)}`}
+                                                title={project.title}
+                                                className="pdf-iframe"
+                                                frameBorder="0"
+                                            />
+                                        )
                                     ) : (
                                         <div className="no-viewer" style={{ textAlign: 'center', padding: '2rem' }}>
                                             <FileText size={48} style={{ marginBottom: '1rem', opacity: 0.7 }} />
-                                            <p style={{ marginBottom: '1.5rem' }}>This document requires a dedicated spreadsheet application to view.</p>
+                                            <p style={{ marginBottom: '1.5rem' }}>This document type requires a dedicated, offline application to view.</p>
                                             <a href={project.reportUrl} download className="download-btn" style={{ width: 'fit-content', margin: '0 auto' }}>
-                                                <Download size={18} /> Download Spreadsheet
+                                                <Download size={18} /> Download File
                                             </a>
                                         </div>
                                     )

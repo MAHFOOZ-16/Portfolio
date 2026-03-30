@@ -277,8 +277,8 @@
     {
       "title": "Software Metrics Report on Object-Oriented Metrics",
       "tech": "SourceMonitor, MetricsReloaded, Object-Oriented Metrics",
-      "slug": "so-metrics-report",
-      "reportUrl": "/projects/pdfs/so-metrics-report.pdf",
+      "slug": "object-oriented-report",
+      "reportUrl": "/projects/pdfs/object-oriented-report.pdf",
       "description": "This project examined the effectiveness of Object-Oriented metrics such as Cyclomatic Complexity, Coupling Between Objects (CBO), and Lines of Code (LOC) to evaluate software quality. Using tools like SourceMonitor and MetricsReloaded, the study identified key metrics affecting maintainability.",
       "category": "Software Engineering"
     },
