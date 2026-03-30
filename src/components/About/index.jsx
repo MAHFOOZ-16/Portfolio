@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Shield, Target, Code, Download } from 'lucide-react';
+import { Shield, Target, Code, Download, GraduationCap } from 'lucide-react';
 import portfolioData from '../../data/portfolio_content.json';
 import './About.css';
 
@@ -27,6 +27,17 @@ export default function About() {
       title: 'Software Engineer',
       description: 'Full-Stack Web & API Architect',
       color: 'warning'
+    },
+    {
+      icon: <GraduationCap className="highlight-icon" />,
+      title: 'Education',
+      description: (
+        <>
+          M.Sc. CS Graduate • BTH Sweden<br/>
+          B.Tech. CSE Graduate • JNTUH India
+        </>
+      ),
+      color: 'danger'
     }
   ];
 
@@ -63,8 +74,8 @@ export default function About() {
                 <span className="output-section">
                   <span className="output-key">Name:</span> {personal.name}<br />
                   <span className="output-key">Role:</span> AI & Security Engineer<br />
-                  <span className="output-key">Education:</span> {education[0].degree}<br />
-                  <span className="output-key">University:</span> {education[0].institution}<br />
+                  <span className="output-key">Education:</span> M.Sc. CS & B.Tech. CSE<br />
+                  <span className="output-key">University:</span> BTH Sweden & JNTUH India<br />
                   <span className="output-key">Core Skills:</span> {skills.languages.slice(0, 6).join(', ')}<br />
                 </span>
                 <br />
@@ -151,7 +162,7 @@ export default function About() {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
               >
-                <Download size={18} /> Download Full Resume
+                <Download size={18} /> Download Resume
               </motion.a>
             </div>
             

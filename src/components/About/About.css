@@ -265,6 +265,16 @@
   color: #ffbd2e;
 }
 
+.highlight-success .highlight-icon-wrapper {
+  background: rgba(0, 255, 128, 0.1);
+  color: #00ff80;
+}
+
+.highlight-danger .highlight-icon-wrapper {
+  background: rgba(255, 95, 86, 0.1);
+  color: #ff5f56;
+}
+
 .about-resume-container {
   margin-top: 48px;
   display: flex;
