@@ -345,6 +345,7 @@
       "slug": "maze-navigation-ga",
       "reportUrl": "/projects/pdfs/maze-navigation.pdf",
       "galleryImages": [
+        "/projects/images/maze-grid.png",
         "/projects/images/a-star.png",
         "/projects/images/bfs.png",
         "/projects/images/dfs.png"
