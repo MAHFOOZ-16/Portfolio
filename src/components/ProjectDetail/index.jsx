@@ -1,9 +1,63 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Download, FileText, Share2, Info, ChevronRight, LayoutGrid } from 'lucide-react';
+import { ArrowLeft, Download, FileText, Share2, Info, ChevronRight, LayoutGrid, ChevronLeft } from 'lucide-react';
 import portfolioData from '../../data/portfolio_content.json';
 import './ProjectDetail.css';
+
+const ProjectGallery = ({ images, title }) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    if (!images || images.length === 0) return null;
+
+    const nextSlide = () => {
+        setCurrentIndex((prev) => (prev + 1) % images.length);
+    };
+
+    const prevSlide = () => {
+        setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+    };
+
+    return (
+        <div className="project-gallery-container animate-fade-in">
+            <h3 className="gallery-title"><LayoutGrid size={16} /> Technical Analysis</h3>
+            <div className="gallery-main">
+                <AnimatePresence mode="wait">
+                    <motion.img
+                        key={currentIndex}
+                        src={images[currentIndex]}
+                        alt={`${title} analysis ${currentIndex + 1}`}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.3 }}
+                        className="gallery-image"
+                    />
+                </AnimatePresence>
+                
+                {images.length > 1 && (
+                    <div className="gallery-controls">
+                        <button onClick={prevSlide} className="gallery-nav-btn prev">
+                            <ChevronLeft size={20} />
+                        </button>
+                        <button onClick={nextSlide} className="gallery-nav-btn next">
+                            <ChevronRight size={20} />
+                        </button>
+                        <div className="gallery-dots">
+                            {images.map((_, idx) => (
+                                <span 
+                                    key={idx} 
+                                    className={`dot ${idx === currentIndex ? 'active' : ''}`}
+                                    onClick={() => setCurrentIndex(idx)}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+};
 
 const ProjectDetail = () => {
     const { category, slug } = useParams();
@@ -118,7 +172,10 @@ const ProjectDetail = () => {
                             </div>
                         </motion.div>
 
-
+                        {/* Desktop Gallery (Hidden on Mobile via CSS) */}
+                        <div className="desktop-gallery-wrapper">
+                            <ProjectGallery images={project.galleryImages} title={project.title} />
+                        </div>
                     </aside>
 
                     {/* Viewer Section */}
@@ -199,6 +256,11 @@ const ProjectDetail = () => {
                                 Restricted Access | Prepared by {portfolioData.personal.name}
                             </p>
                         </motion.div>
+
+                        {/* Mobile Gallery (Shown on Mobile via CSS) */}
+                        <div className="mobile-gallery-wrapper">
+                            <ProjectGallery images={project.galleryImages} title={project.title} />
+                        </div>
                     </section>
                 </div>
             </main>

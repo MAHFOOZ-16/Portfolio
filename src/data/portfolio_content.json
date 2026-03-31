@@ -343,7 +343,13 @@
       "title": "Maze Navigation with Genetic Algorithms",
       "tech": "Genetic Algorithms, Real-time Problem Solving",
       "slug": "maze-navigation-ga",
-      "reportUrl": "/projects/pdfs/maze-navigation-ga.pdf",
+      "reportUrl": "/projects/pdfs/maze-navigation.pdf",
+      "imageUrl": "/projects/images/maze-grid.png",
+      "galleryImages": [
+        "/projects/images/a-star.png",
+        "/projects/images/bfs.png",
+        "/projects/images/dfs.png"
+      ],
       "description": "This project implemented a Genetic Algorithm to solve a maze navigation problem. It included random path generation, fitness evaluation, and visualization of the optimal path.",
       "category": "AI/ML"
     },
@@ -351,7 +357,7 @@
       "title": "Traveling Salesman Problem Using Genetic Algorithm",
       "tech": "Genetic Algorithm, Evolutionary Strategies",
       "slug": "tsp-genetic-algorithm",
-      "reportUrl": "/projects/pdfs/tsp-genetic-algorithm.pdf",
+      "reportUrl": "/projects/pdfs/tsp-genetic.pdf",
       "description": "This project applied genetic algorithms to solve the Traveling Salesman Problem. By experimenting with population size and mutation rates, the study demonstrated optimized complex routes.",
       "category": "AI/ML"
     },
