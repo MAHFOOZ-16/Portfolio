@@ -63,6 +63,11 @@ const ProjectCard = ({ project }) => {
               <Code2 size={16} /> View Code
             </a>
           )}
+          {project.publicationUrl && (
+            <a href={project.publicationUrl} target="_blank" rel="noopener noreferrer" className="project-link publication">
+              <ExternalLink size={16} /> View Publication
+            </a>
+          )}
           {project.videoUrl && (
             <a href={project.videoUrl} target="_blank" rel="noopener noreferrer" className="project-link outline">
               Watch Video
