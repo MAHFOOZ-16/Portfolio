@@ -172,10 +172,6 @@ const ProjectDetail = () => {
                             </div>
                         </motion.div>
 
-                        {/* Desktop Gallery (Hidden on Mobile via CSS) */}
-                        <div className="desktop-gallery-wrapper">
-                            <ProjectGallery images={project.galleryImages} title={project.title} />
-                        </div>
                     </aside>
 
                     {/* Viewer Section */}
@@ -257,10 +253,10 @@ const ProjectDetail = () => {
                             </p>
                         </motion.div>
 
-                        {/* Mobile Gallery (Shown on Mobile via CSS) */}
-                        <div className="mobile-gallery-wrapper">
+                        {/* Technical Analysis Gallery — below the report */}
+                        {project.galleryImages && project.galleryImages.length > 0 && (
                             <ProjectGallery images={project.galleryImages} title={project.title} />
-                        </div>
+                        )}
                     </section>
                 </div>
             </main>
