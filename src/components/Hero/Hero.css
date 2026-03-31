@@ -1,11 +1,11 @@
 .hero-section {
   position: relative;
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding: 0 5%;
+  padding: 0 var(--section-padding-x);
 }
 
 .hero-background {
@@ -26,8 +26,8 @@
 }
 
 .orb-1 {
-  width: 400px;
-  height: 400px;
+  width: min(400px, 60vw);
+  height: min(400px, 60vw);
   background: var(--accent-glow);
   top: -100px;
   left: -100px;
@@ -35,8 +35,8 @@
 }
 
 .orb-2 {
-  width: 300px;
-  height: 300px;
+  width: min(300px, 50vw);
+  height: min(300px, 50vw);
   background: rgba(138, 43, 226, 0.3); /* Purple-ish */
   bottom: 10%;
   right: 10%;
@@ -57,20 +57,20 @@
 }
 
 .hero-content {
-  max-width: 700px;
+  max-width: 800px;
 }
 
 .hero-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 16px;
+  padding: 8px 20px;
   background: rgba(0, 255, 128, 0.1);
   border: 1px solid rgba(0, 255, 128, 0.3);
-  border-radius: 30px;
+  border-radius: 40px;
   color: #00ff80;
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 0.85rem;
+  font-weight: 600;
   margin-bottom: 24px;
 }
 
@@ -100,8 +100,8 @@
 }
 
 .hero-title {
-  font-size: clamp(3rem, 5vw, 4.5rem);
-  line-height: 1.1;
+  font-size: var(--fs-h1);
+  line-height: 1.05;
   color: #fff;
   margin-bottom: 24px;
 }
@@ -114,10 +114,11 @@
 }
 
 .hero-description {
-  font-size: 1.125rem;
+  font-size: var(--fs-body);
   color: var(--text-muted);
   margin-bottom: 40px;
   max-width: 600px;
+  line-height: 1.6;
 }
 
 .hero-actions {
