@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate, useParams } from 'react-router-dom';
 
 const CategoryRedirect = () => {
@@ -51,7 +51,6 @@ const ScrollHandler = () => {
         setTimeout(() => {
           const element = document.querySelector(hash);
           if (element) {
-            // A slightly longer timeout ensures Framer Motion has expanded components
             lenis.scrollTo(element, { offset: 0, duration: 1.5 });
           }
         }, 400);
@@ -71,26 +70,43 @@ const ScrollHandler = () => {
   return null;
 };
 
-const Home = () => (
-  <div className="portfolio-content relative">
-    <GradientSpheres
-      sphere1Class={"gradient-sphere sphere-1"}
-      sphere2Class={"gradient-sphere sphere-2"}
-    />
-    <ScrollyHero />
-    <About />
-    <Experience />
-    <Projects />
-    <Achievements />
-    <TechStack />
-    <PreFooter />
-    <Footer />
-    <Chatbot />
-  </div>
-);
+const Home = ({ scrollToHash }) => {
+  useEffect(() => {
+    if (scrollToHash) {
+      // Wait for all components to render, then scroll
+      const timer = setTimeout(() => {
+        const element = document.querySelector(scrollToHash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 600);
+      return () => clearTimeout(timer);
+    }
+  }, [scrollToHash]);
+
+  return (
+    <div className="portfolio-content relative">
+      <GradientSpheres
+        sphere1Class={"gradient-sphere sphere-1"}
+        sphere2Class={"gradient-sphere sphere-2"}
+      />
+      <ScrollyHero />
+      <About />
+      <Experience />
+      <Projects />
+      <Achievements />
+      <TechStack />
+      <PreFooter />
+      <Footer />
+      <Chatbot />
+    </div>
+  );
+};
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  // Capture the hash at initial page load (before React clears it)
+  const initialHash = useRef(window.location.hash || null);
 
   return (
     <Router>
@@ -102,7 +118,7 @@ function App() {
 
         {!isLoading && (
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home scrollToHash={initialHash.current} />} />
             <Route path="/projects" element={<Navigate to="/#projects" replace />} />
             <Route path="/projects/:category" element={<CategoryRedirect />} />
             <Route path="/projects/:category/:slug" element={<ProjectDetail />} />
