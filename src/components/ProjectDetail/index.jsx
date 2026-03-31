@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Download, FileText, Share2, Info, ChevronRight, LayoutGrid, ChevronLeft } from 'lucide-react';
+import { ArrowLeft, Download, FileText, Share2, Info, ChevronRight, LayoutGrid, ChevronLeft, ExternalLink } from 'lucide-react';
 import portfolioData from '../../data/portfolio_content.json';
 import './ProjectDetail.css';
 
@@ -180,13 +180,22 @@ const ProjectDetail = () => {
                             <div className="pdf-wrapper">
                                 {project.reportUrl ? (
                                     project.reportUrl.startsWith('http') ? (
-                                        <iframe 
-                                            src={project.reportUrl}
-                                            title={project.title}
-                                            className="pdf-iframe"
-                                            frameBorder="0"
-                                            allowFullScreen
-                                        />
+                                        <div className="no-viewer external-doc-card">
+                                            <ExternalLink size={48} style={{ marginBottom: '1.5rem', color: 'var(--accent-color)', opacity: 0.9 }} />
+                                            <h3 style={{ fontSize: '1.1rem', marginBottom: '0.75rem', color: 'var(--text-main)' }}>External Academic Document</h3>
+                                            <p style={{ fontSize: '0.9rem', maxWidth: '70%', textAlign: 'center', lineHeight: '1.6', marginBottom: '2rem', color: 'var(--text-muted)' }}>
+                                                This document is hosted on an external academic portal and cannot be embedded here. Click below to view the full report.
+                                            </p>
+                                            <a
+                                                href={project.reportUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="download-btn"
+                                                style={{ width: 'fit-content' }}
+                                            >
+                                                <ExternalLink size={18} /> View on DiVA Portal
+                                            </a>
+                                        </div>
                                     ) : project.reportUrl.endsWith('.pdf') ? (
                                         <object 
                                             data={`${project.reportUrl}#toolbar=0&navpanes=0`} 
