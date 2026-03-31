@@ -125,15 +125,6 @@ const ProjectDetail = () => {
                             transition={{ duration: 0.6, delay: 0.2 }}
                             className="sidebar-card"
                         >
-                            {project.imageUrl && (
-                                <div className="project-image-container">
-                                    <img 
-                                        src={project.imageUrl} 
-                                        alt={project.title} 
-                                        className="detail-project-image"
-                                    />
-                                </div>
-                            )}
                             <div className="project-type-tag">
                                 <FileText size={14} /> Report
                             </div>
@@ -252,6 +243,17 @@ const ProjectDetail = () => {
                                 Restricted Access | Prepared by {portfolioData.personal.name}
                             </p>
                         </motion.div>
+
+                        {/* Featured Image — below the report */}
+                        {project.imageUrl && (
+                            <div className="project-image-container below-viewer">
+                                <img
+                                    src={project.imageUrl}
+                                    alt={project.title}
+                                    className="detail-project-image"
+                                />
+                            </div>
+                        )}
 
                         {/* Technical Analysis Gallery — below the report */}
                         {project.galleryImages && project.galleryImages.length > 0 && (

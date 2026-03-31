@@ -344,7 +344,6 @@
       "tech": "Genetic Algorithms, Real-time Problem Solving",
       "slug": "maze-navigation-ga",
       "reportUrl": "/projects/pdfs/maze-navigation.pdf",
-      "imageUrl": "/projects/images/maze-grid.png",
       "galleryImages": [
         "/projects/images/a-star.png",
         "/projects/images/bfs.png",
