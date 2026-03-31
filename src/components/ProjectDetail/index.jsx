@@ -29,7 +29,7 @@ const ProjectDetail = () => {
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="not-found-content">
                     <h1>Project Not Found</h1>
                     <p>The "classified" report you are looking for does not exist or has been moved.</p>
-                    <Link to="/" className="back-home-btn">
+                    <Link to="/#projects" className="back-home-btn">
                         <ArrowLeft size={18} /> Back to Portfolio
                     </Link>
                 </motion.div>
@@ -48,7 +48,7 @@ const ProjectDetail = () => {
             <main className="detail-container">
                 {/* Header / Breadcrumbs */}
                 <nav className="detail-nav">
-                    <Link to="/" className="nav-back-link">
+                    <Link to="/#projects" className="nav-back-link">
                         <ArrowLeft size={18} /> Back to Portfolio
                     </Link>
                     <div className="breadcrumbs">
@@ -90,9 +90,15 @@ const ProjectDetail = () => {
 
                             <div className="action-buttons">
                                 {project.reportUrl && (
-                                    <a href={project.reportUrl} download className="download-btn">
-                                        <Download size={18} /> Download Report
-                                    </a>
+                                    project.reportUrl.startsWith('http') ? (
+                                        <a href={project.reportUrl} target="_blank" rel="noopener noreferrer" className="download-btn">
+                                            <Download size={18} /> View Report
+                                        </a>
+                                    ) : (
+                                        <a href={project.reportUrl} download className="download-btn">
+                                            <Download size={18} /> Download Report
+                                        </a>
+                                    )
                                 )}
                                 <button className="share-btn" onClick={() => {
                                     navigator.clipboard.writeText(window.location.href);
@@ -120,7 +126,15 @@ const ProjectDetail = () => {
                             
                             <div className="pdf-wrapper">
                                 {project.reportUrl ? (
-                                    project.reportUrl.endsWith('.pdf') ? (
+                                    project.reportUrl.startsWith('http') ? (
+                                        <iframe 
+                                            src={project.reportUrl}
+                                            title={project.title}
+                                            className="pdf-iframe"
+                                            frameBorder="0"
+                                            allowFullScreen
+                                        />
+                                    ) : project.reportUrl.endsWith('.pdf') ? (
                                         <object 
                                             data={`${project.reportUrl}#toolbar=0&navpanes=0`} 
                                             type="application/pdf"
