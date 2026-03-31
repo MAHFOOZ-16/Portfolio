@@ -1,7 +1,6 @@
 {
   "rewrites": [
-    { "source": "/projects/game-development/ar-game-two/(.*)", "destination": "https://ar-game-two.vercel.app/$1" },
-    { "source": "/projects/game-development/ar-game-two", "destination": "https://ar-game-two.vercel.app/" },
+
     { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/(.*)", "destination": "/index.html" }
   ],

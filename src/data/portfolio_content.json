@@ -191,7 +191,7 @@
       "slug": "ar-game-two",
       "period": "January 2026 -- March 2026",
       "codeUrl": "https://github.com/MAHFOOZ-16/AR-Game",
-      "liveUrl": "https://www.ahmedmahfoozalikhan.me/projects/game-development/ar-game-two",
+      "liveUrl": "https://ar-game-two.vercel.app/",
       "description": "Cross-platform AR shooter using real-time hand tracking via MediaPipe. Implemented gesture-based flick-to-shoot mechanics achieving 70% precision improvement through adaptive smoothing. Deployed as full-stack web app (browser) + desktop app (Python/OpenCV) with responsive sci-fi UI, 30+ FPS performance on M1 Macs, and dynamic difficulty scaling.",
       "category": "Game Development"
     },
