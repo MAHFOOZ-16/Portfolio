@@ -207,21 +207,19 @@ const ProjectDetail = () => {
                                             </a>
                                         </div>
                                     ) : project.reportUrl.endsWith('.pdf') ? (
-                                        <div className="pdf-scroll-inner">
-                                            <object 
-                                                data={`${project.reportUrl}#toolbar=0&navpanes=0`} 
-                                                type="application/pdf"
+                                        <object 
+                                            data={`${project.reportUrl}#toolbar=0&navpanes=0`} 
+                                            type="application/pdf"
+                                            className="pdf-iframe"
+                                        >
+                                            <iframe 
+                                                src={`${project.reportUrl}#toolbar=0&navpanes=0`} 
+                                                title={project.title}
                                                 className="pdf-iframe"
                                             >
-                                                <iframe 
-                                                    src={`${project.reportUrl}#toolbar=0&navpanes=0`} 
-                                                    title={project.title}
-                                                    className="pdf-iframe"
-                                                >
-                                                    <p>Your browser does not support PDFs. <a href={project.reportUrl}>Download the PDF</a>.</p>
-                                                </iframe>
-                                            </object>
-                                        </div>
+                                                <p>Your browser does not support PDFs. <a href={project.reportUrl}>Download the PDF</a>.</p>
+                                            </iframe>
+                                        </object>
                                     ) : project.reportUrl.match(/\.(xlsx|xls|doc|docx|ppt|pptx)$/i) ? (
                                         window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? (
                                             <div className="no-viewer" style={{ textAlign: 'center', padding: '2rem' }}>
