@@ -154,6 +154,16 @@ const ProjectDetail = () => {
                                         </a>
                                     )
                                 )}
+                                {project.publicationUrl && (
+                                    <a
+                                        href={project.publicationUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="publication-btn"
+                                    >
+                                        <ExternalLink size={18} /> View Publication
+                                    </a>
+                                )}
                                 <button className="share-btn" onClick={() => {
                                     navigator.clipboard.writeText(window.location.href);
                                     alert("Link copied to clipboard!");

@@ -226,7 +226,8 @@
       "tech": "AI, Predictive Maintenance, Real-time Optimization",
       "slug": "volvo-construction-ai",
       "codeUrl": "https://github.com/MAHFOOZ-16/volvo_final",
-      "reportUrl": "https://urn.kb.se/resolve?urn=urn:nbn:se:bth-28884",
+      "reportUrl": "/projects/pdfs/volvo-construction-ai.pdf",
+      "publicationUrl": "https://urn.kb.se/resolve?urn=urn:nbn:se:bth-28884",
       "description": "This project focused on enhancing construction site operations by integrating AI solutions for predictive maintenance, real-time optimization, and hybrid communication frameworks. The solutions aimed to address inefficiencies in manual maintenance, fragmented workflows, and connectivity challenges.",
       "category": "AI/ML"
     },
