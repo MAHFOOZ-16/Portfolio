@@ -130,6 +130,26 @@
     padding: 1.5rem;
 }
 
+.project-image-container {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.detail-project-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.sidebar-card:hover .detail-project-image {
+    transform: scale(1.05);
+}
+
 .project-type-tag {
     display: inline-flex;
     align-items: center;

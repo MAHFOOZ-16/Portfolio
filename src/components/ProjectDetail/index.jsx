@@ -71,6 +71,15 @@ const ProjectDetail = () => {
                             transition={{ duration: 0.6, delay: 0.2 }}
                             className="sidebar-card"
                         >
+                            {project.imageUrl && (
+                                <div className="project-image-container">
+                                    <img 
+                                        src={project.imageUrl} 
+                                        alt={project.title} 
+                                        className="detail-project-image"
+                                    />
+                                </div>
+                            )}
                             <div className="project-type-tag">
                                 <FileText size={14} /> Report
                             </div>

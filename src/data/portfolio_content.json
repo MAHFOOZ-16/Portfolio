@@ -255,7 +255,9 @@
       "slug": "image-decoding",
       "period": "September 2024 -- November 2024",
       "description": "Conceived an image encoding function boosting barcode conversion accuracy by 23%, ensuring precise representation. Leveraged Python image processing libraries to optimize execution speed by 30%. Crafted a decoding algorithm increasing pixel data parsing accuracy by 29%.",
-      "category": "AI/ML"
+      "category": "AI/ML",
+      "reportUrl": "/projects/pdfs/image-decoding.pdf",
+      "imageUrl": "/projects/images/image-decoding.png"
     },
     {
       "title": "Smart Chatbot - A Machine Learning Approach to Human-Computer Interaction",
