@@ -161,6 +161,7 @@ export default function About() {
                 className="about-resume-btn"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
+                onClick={() => window.gtag && window.gtag('event', 'resume_click', { 'location': 'about' })}
               >
                 <Download size={18} /> Download Resume
               </motion.a>

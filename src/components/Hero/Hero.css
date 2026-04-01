@@ -197,7 +197,30 @@
   z-index: 5;
 }
 
+/* ── Tablet ── */
 @media (max-width: 1024px) {
+  .hero-section {
+    padding: 0 5%;
+  }
+
+  .hero-content {
+    max-width: 55%;
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .btn-primary, .btn-secondary {
+    padding: 12px 22px;
+    font-size: 0.9rem;
+  }
+
   .absolute-hero-character {
     width: 60%;
     opacity: 0.7;
@@ -205,14 +228,42 @@
   }
 }
 
+/* ── Mobile ── */
 @media (max-width: 768px) {
+  .hero-section {
+    padding: 0 6%;
+    align-items: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    margin-bottom: 28px;
+  }
+
   .hero-actions {
     flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
   }
+
   .btn-primary, .btn-secondary {
     width: 100%;
     justify-content: center;
+    padding: 14px 24px;
   }
+
   .absolute-hero-character {
     width: 100%;
     right: -20%;
@@ -301,6 +352,35 @@
   }
 }
 
+/* ── Small phones ── */
+@media (max-width: 380px) {
+  .hero-section {
+    padding: 0 4%;
+  }
+
+  .hero-badge {
+    font-size: 0.75rem;
+    padding: 5px 12px;
+  }
+
+  .hero-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+  }
+
+  .hero-description {
+    font-size: 0.85rem;
+  }
+
+  .btn-primary, .btn-secondary {
+    padding: 12px 20px;
+    font-size: 0.85rem;
+  }
+}
+
 /* Background Visual Spheres from Saurav-Portfolio */
 .gradient-sphere {
   position: fixed;
@@ -336,4 +416,42 @@
   0% { transform: translateX(0); }
   50% { transform: translateX(30vw) translateY(-50vh); }
   100% { transform: translateX(0); }
+}
+
+/* ── Spheres: tablet & mobile sizing ── */
+@media (max-width: 1024px) {
+  .gradient-sphere {
+    width: 500px;
+    height: 500px;
+  }
+  .sphere-1 {
+    left: 100px;
+  }
+  .sphere-2 {
+    right: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gradient-sphere {
+    width: 350px;
+    height: 350px;
+    opacity: 0.5;
+  }
+  .sphere-1 {
+    top: -80px;
+    left: -50px;
+  }
+  .sphere-2 {
+    top: 50px;
+    right: -50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gradient-sphere {
+    width: 250px;
+    height: 250px;
+    opacity: 0.4;
+  }
 }

@@ -58,6 +58,10 @@
     padding: 10px 0;
   }
 
+  .footer-copyright {
+    font-size: 0.82rem;
+  }
+
   .footer-socials {
     gap: 32px;
   }
@@ -70,5 +74,19 @@
   .social-item a svg {
     width: 28px;
     height: 28px;
+  }
+}
+
+@media (max-width: 380px) {
+  .footer-section {
+    padding: 24px 4%;
+  }
+
+  .footer-copyright {
+    font-size: 0.75rem;
+  }
+
+  .footer-socials {
+    gap: 28px;
   }
 }

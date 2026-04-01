@@ -11,10 +11,10 @@ const colorsList = ['#ffaa00', '#00ff88', '#00d4ff', '#bd00ff', '#ff6b6b'];
 
 const useIsMobile = () => {
     const [mobile, setMobile] = useState(
-        typeof window !== 'undefined' && window.innerWidth < 768
+        typeof window !== 'undefined' && window.innerWidth < 1024
     );
     useEffect(() => {
-        const handler = () => setMobile(window.innerWidth < 768);
+        const handler = () => setMobile(window.innerWidth < 1024);
         window.addEventListener('resize', handler);
         return () => window.removeEventListener('resize', handler);
     }, []);

@@ -103,7 +103,6 @@
 
 /* ═══════════════════════════════════════════════════
    Section 2: AI/ML — TOP LEFT corner
-   (user drew square at ~left:2%, top:20%, w:25%, h:30%)
    ═══════════════════════════════════════════════════ */
 
 .scrolly-overlay--s2 {
@@ -115,7 +114,6 @@
 
 /* ═══════════════════════════════════════════════════
    Section 3: Cybersecurity — BOTTOM RIGHT corner
-   (user drew square at ~right:2%, top:55%, w:25%, h:25%)
    ═══════════════════════════════════════════════════ */
 
 .scrolly-overlay--s3 {
@@ -221,10 +219,6 @@
 }
 
 /* ═══════════════════════════════════════════════════
-   RESPONSIVE
-   ═══════════════════════════════════════════════════ */
-
-/* ═══════════════════════════════════════════════════
    MOBILE HERO — Static, clean, reliable
    ═══════════════════════════════════════════════════ */
 
@@ -299,6 +293,7 @@
   display: flex;
   gap: 24px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .scrolly-mobile-tag-group {
@@ -332,7 +327,33 @@
 }
 
 /* ═══════════════════════════════════════════════════
-   RESPONSIVE TWEAKS (desktop canvas overlay)
+   RESPONSIVE — Tablet (canvas overlay)
+   ═══════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .scrolly-container {
+    height: 400vh;
+  }
+
+  .scrolly-overlay--s2 {
+    padding: 12vh 0 0 5%;
+  }
+
+  .scrolly-overlay--s3 {
+    padding: 0 5% 10vh 0;
+  }
+
+  .scrolly-block {
+    max-width: 300px;
+  }
+
+  .scrolly-block-heading {
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE — Mobile
    ═══════════════════════════════════════════════════ */
 
 @media (max-width: 768px) {
@@ -434,5 +455,35 @@
 
   .scrolly-block-tags span {
     font-size: 0.55rem;
+  }
+
+  .scrolly-mobile-content {
+    padding: 0 5% 20px;
+    gap: 16px;
+  }
+
+  .scrolly-mobile-statement {
+    font-size: clamp(1.2rem, 5.5vw, 1.7rem);
+  }
+
+  .scrolly-mobile-tags {
+    gap: 16px;
+  }
+}
+
+/* ── Small phones ── */
+@media (max-width: 380px) {
+  .scrolly-mobile-img {
+    flex: 0 0 48vh;
+  }
+
+  .scrolly-mobile-content {
+    padding: 0 4% 16px;
+    gap: 12px;
+    margin-top: -30px;
+  }
+
+  .scrolly-mobile-statement {
+    font-size: clamp(1.1rem, 5vw, 1.4rem);
   }
 }

@@ -39,6 +39,7 @@ const Footer = () => {
                 target="_blank" 
                 rel="noreferrer noopener"
                 aria-label={social.name}
+                onClick={() => window.gtag && window.gtag('event', 'social_click', { 'platform': social.name.toLowerCase(), 'location': 'footer' })}
               >
                 {social.icon}
               </a>

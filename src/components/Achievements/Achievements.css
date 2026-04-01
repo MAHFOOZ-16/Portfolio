@@ -328,7 +328,38 @@
 }
 
 /* ══════════════════════════════════════════
-   Responsive
+   Responsive — Tablet
+   ══════════════════════════════════════════ */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .achievements-section {
+    padding: 80px 5%;
+  }
+
+  .trophy-tabs {
+    margin-bottom: 40px;
+  }
+
+  .trophy-tab {
+    padding: 9px 20px;
+    font-size: 0.85rem;
+  }
+
+  .trophy-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .glass-card {
+    padding: 28px 24px 32px;
+  }
+
+  .glass-card__title {
+    font-size: 1.08rem;
+  }
+}
+
+/* ══════════════════════════════════════════
+   Responsive — Mobile
    ══════════════════════════════════════════ */
 @media (max-width: 768px) {
   .achievements-section {
@@ -390,6 +421,10 @@
 }
 
 @media (max-width: 480px) {
+  .achievements-section {
+    padding: 60px 3%;
+  }
+
   .trophy-tabs {
     width: 100%;
     overflow-x: auto;
@@ -405,9 +440,15 @@
   .trophy-tab {
     white-space: nowrap;
     flex-shrink: 0;
+    padding: 8px 14px;
+    font-size: 0.78rem;
   }
 
   .glass-card {
     padding: 24px 20px 28px;
+  }
+
+  .glass-card__desc {
+    font-size: 0.82rem;
   }
 }

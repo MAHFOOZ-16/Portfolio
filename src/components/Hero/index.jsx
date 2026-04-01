@@ -40,7 +40,12 @@ export default function Hero() {
             <a href={`mailto:${personal.email}`} className="btn-primary">
               <Mail size={18} /> Let's Connect
             </a>
-            <a href="/resume.pdf" download className="btn-secondary btn-resume">
+            <a 
+              href="/resume.pdf" 
+              download 
+              className="btn-secondary btn-resume"
+              onClick={() => window.gtag && window.gtag('event', 'resume_click', { 'location': 'hero' })}
+            >
               <Download size={18} /> Download Resume
             </a>
             <a href="#projects" className="btn-secondary">
@@ -49,13 +54,13 @@ export default function Hero() {
           </div>
 
           <div className="hero-socials">
-            <a href={personal.github} target="_blank" rel="noopener noreferrer">
+            <a href={personal.github} target="_blank" rel="noopener noreferrer" onClick={() => window.gtag && window.gtag('event', 'social_click', { 'platform': 'github', 'location': 'hero' })}>
               <Github size={24} />
             </a>
-            <a href={personal.linkedin} target="_blank" rel="noopener noreferrer">
+            <a href={personal.linkedin} target="_blank" rel="noopener noreferrer" onClick={() => window.gtag && window.gtag('event', 'social_click', { 'platform': 'linkedin', 'location': 'hero' })}>
               <Linkedin size={24} />
             </a>
-            <a href={`tel:${personal.phone}`} target="_blank" rel="noopener noreferrer">
+            <a href={`tel:${personal.phone}`} target="_blank" rel="noopener noreferrer" onClick={() => window.gtag && window.gtag('event', 'social_click', { 'platform': 'phone', 'location': 'hero' })}>
               <Phone size={24} />
             </a>
           </div>

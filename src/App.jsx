@@ -67,6 +67,15 @@ const ScrollHandler = () => {
     };
   }, [pathname, hash]);
 
+  // Track page views on route and hash changes
+  useEffect(() => {
+    if (window.gtag) {
+      window.gtag('config', 'G-CG961CHMCQ', {
+        page_path: pathname + hash,
+      });
+    }
+  }, [pathname, hash]);
+
   return null;
 };
 

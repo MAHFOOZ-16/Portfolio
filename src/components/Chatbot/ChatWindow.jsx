@@ -30,12 +30,24 @@ export default function ChatWindow({ messages, isTyping, error, onSend, onClose 
     const text = input.trim();
     if (!text || isTyping) return;
     onSend(text);
+    if (window.gtag) {
+      window.gtag('event', 'chatbot_message', {
+        'message_length': text.length,
+        'method': 'typed'
+      });
+    }
     setInput('');
   };
 
   const handleStarterClick = (question) => {
     if (isTyping) return;
     onSend(question);
+    if (window.gtag) {
+      window.gtag('event', 'chatbot_message', {
+        'question_text': question,
+        'method': 'starter_chip'
+      });
+    }
   };
 
   const showStarters = messages.length === 0;

@@ -21,6 +21,9 @@
 
 html {
   overflow-x: clip;
+  /* Prevent text size adjustment on orientation change */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -68,4 +71,18 @@ a:hover {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-muted); 
+}
+
+/* ── Ensure images never overflow ── */
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── Touch targets — iOS & Android accessibility ── */
+@media (max-width: 768px) {
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }

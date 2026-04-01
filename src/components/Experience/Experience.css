@@ -73,6 +73,26 @@
   }
 }
 
+/* ── Tablet: position cards with more room ── */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .fixed-header {
+    top: 25vh;
+  }
+
+  .wave-card {
+    width: 360px;
+    padding: 24px;
+  }
+
+  .card-role {
+    font-size: 1.2rem;
+  }
+
+  .card-bullets li {
+    font-size: 0.85rem;
+  }
+}
+
 .card-top {
   display: flex;
   justify-content: flex-start;
@@ -90,6 +110,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .card-date {
@@ -152,11 +173,32 @@
 }
 
 .mobile-cards-stack {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 24px;
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .mobile-cards-stack {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 800px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .experience-mobile {
+    padding: 80px 5% 60px;
+  }
+
+  .mobile-exp-card {
+    padding: 24px;
+  }
+
+  .mobile-exp-card .card-role {
+    font-size: 1.15rem;
+  }
 }
 
 .mobile-exp-card {
@@ -197,4 +239,23 @@
 .mobile-exp-card .card-bullets li {
   font-size: 0.82rem;
   margin-bottom: 8px;
+}
+
+/* ── Small phones ── */
+@media (max-width: 380px) {
+  .experience-mobile {
+    padding: 60px 4% 40px;
+  }
+
+  .mobile-exp-card {
+    padding: 18px;
+  }
+
+  .mobile-exp-card .card-role {
+    font-size: 1rem;
+  }
+
+  .mobile-exp-card .card-bullets li {
+    font-size: 0.78rem;
+  }
 }

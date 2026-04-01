@@ -12,6 +12,16 @@ const ProjectCard = ({ project }) => {
     ? project.category.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') 
     : 'general';
   
+  const trackProjectClick = (linkType) => {
+    if (window.gtag) {
+      window.gtag('event', 'project_click', {
+        'project_name': project.title,
+        'link_type': linkType,
+        'category': project.category || 'general'
+      });
+    }
+  };
+
   return (
     <motion.div
       layout
@@ -43,33 +53,67 @@ const ProjectCard = ({ project }) => {
 
         <div className="project-links">
           {project.liveUrl && (
-            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="project-link highlight">
+            <a 
+              href={project.liveUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="project-link highlight"
+              onClick={() => trackProjectClick('live_demo')}
+            >
               <Globe size={16} /> View Live
             </a>
           )}
           {project.reportUrl && (
             project.slug ? (
-              <Link to={`/projects/${categorySlug}/${project.slug}`} className="project-link">
+              <Link 
+                to={`/projects/${categorySlug}/${project.slug}`} 
+                className="project-link"
+                onClick={() => trackProjectClick('report_detail')}
+              >
                 <ExternalLink size={16} /> View Report
               </Link>
             ) : (
-              <a href={project.reportUrl} target="_blank" rel="noopener noreferrer" className="project-link">
+              <a 
+                href={project.reportUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="project-link"
+                onClick={() => trackProjectClick('report_external')}
+              >
                 <ExternalLink size={16} /> View Report
               </a>
             )
           )}
           {project.codeUrl && (
-            <a href={project.codeUrl} target="_blank" rel="noopener noreferrer" className="project-link">
+            <a 
+              href={project.codeUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="project-link"
+              onClick={() => trackProjectClick('github_code')}
+            >
               <Code2 size={16} /> View Code
             </a>
           )}
           {project.publicationUrl && (
-            <a href={project.publicationUrl} target="_blank" rel="noopener noreferrer" className="project-link publication">
+            <a 
+              href={project.publicationUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="project-link publication"
+              onClick={() => trackProjectClick('publication')}
+            >
               <ExternalLink size={16} /> View Publication
             </a>
           )}
           {project.videoUrl && (
-            <a href={project.videoUrl} target="_blank" rel="noopener noreferrer" className="project-link outline">
+            <a 
+              href={project.videoUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="project-link outline"
+              onClick={() => trackProjectClick('video_demo')}
+            >
               Watch Video
             </a>
           )}

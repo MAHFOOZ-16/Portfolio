@@ -139,7 +139,15 @@ function MobileSkills() {
 /* ── Main Component ── */
 export default function TechStack() {
   const [hoveredCat, setHoveredCat] = useState(null);
-  const isMobile = false;
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== 'undefined' && window.innerWidth <= 768
+  );
+
+  useEffect(() => {
+    const handler = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handler);
+    return () => window.removeEventListener('resize', handler);
+  }, []);
   const [dragNodeId, setDragNodeId] = useState(null);
   const dragRef = useRef(null);
   const graphRef = useRef(null);

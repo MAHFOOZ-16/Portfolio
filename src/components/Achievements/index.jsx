@@ -120,7 +120,15 @@ const GlassCard = ({ item, index, color }) => {
             rel="noopener noreferrer"
             className="glass-card__link"
             style={{ color }}
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e) => {
+              e.stopPropagation();
+              if (window.gtag) {
+                window.gtag('event', 'achievement_click', {
+                  'title': item.title,
+                  'type': item.issuer ? 'certification' : 'achievement'
+                });
+              }
+            }}
           >
             View Project ↗
           </a>

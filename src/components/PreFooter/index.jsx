@@ -20,6 +20,7 @@ export default function PreFooter() {
           className="connect-btn"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          onClick={() => window.gtag && window.gtag('event', 'social_click', { 'platform': 'email', 'location': 'prefooter' })}
         >
            Send a Message
         </motion.a>
