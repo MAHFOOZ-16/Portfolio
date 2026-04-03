@@ -1,10 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate, useParams } from 'react-router-dom';
 
-const CategoryRedirect = () => {
-  const { category } = useParams();
-  return <Navigate to={`/?category=${category}#projects`} replace />;
-};
+
 import Lenis from 'lenis';
 import { AnimatePresence } from 'framer-motion';
 import Preloader from './components/Preloader';
@@ -23,11 +20,14 @@ import ProjectDetail from './components/ProjectDetail';
 // Helper component to handle scrolling and initialization
 const ScrollHandler = ({ isReady }) => {
   const { pathname, hash, search } = useLocation();
+  const hasScrolledRef = useRef(false);
 
   useEffect(() => {
-    // Only initialize Lenis for the main landing page
+    // Only initialize Lenis for the main landing pages
     let lenis;
-    if (pathname === '/') {
+    const isHomeRoute = pathname === '/' || pathname === '/projects' || (pathname.startsWith('/projects/') && pathname.split('/').length === 3);
+
+    if (isHomeRoute) {
       lenis = new Lenis({
         duration: 1.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -63,17 +63,30 @@ const ScrollHandler = ({ isReady }) => {
 
   // Handle hash scrolling when the hash changes OR when the app becomes ready
   useEffect(() => {
-    if (isReady && hash && window.lenis) {
+    if (!isReady || !window.lenis) return;
+
+    // Use explicit hash, or infer hash if we are on a projects route
+    const isProjectsRoute = pathname === '/projects' || (pathname.startsWith('/projects/') && pathname.split('/').length === 3);
+    const targetHash = hash || (isProjectsRoute ? '#projects' : null);
+
+    if (targetHash) {
+      // Only auto-scroll to category on INITIAL pageload (not when just clicking filters locally)
+      if (!hash && isProjectsRoute && hasScrolledRef.current) {
+        return; 
+      }
+
       setTimeout(() => {
-        const element = document.querySelector(hash);
+        const element = document.querySelector(targetHash);
         if (element) {
           window.lenis.scrollTo(element, { offset: 0, duration: 1.5 });
+          hasScrolledRef.current = true;
         }
-      }, 100);
-    } else if (isReady && !hash && pathname === '/') {
+      }, 600); // 600ms gives enough time for DOM & animations to settle
+    } else if (pathname === '/' && !hasScrolledRef.current) {
       window.scrollTo(0, 0);
+      hasScrolledRef.current = true;
     }
-  }, [hash, isReady, pathname]);
+  }, [hash, search, isReady, pathname]);
 
   // Track page views on route, hash, and search param changes
   useEffect(() => {
@@ -121,8 +134,8 @@ function App() {
         {!isLoading && (
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/projects" element={<Navigate to="/#projects" replace />} />
-            <Route path="/projects/:category" element={<CategoryRedirect />} />
+            <Route path="/projects" element={<Home />} />
+            <Route path="/projects/:category" element={<Home />} />
             <Route path="/projects/:category/:slug" element={<ProjectDetail />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
