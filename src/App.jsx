@@ -21,8 +21,8 @@ import GradientSpheres from './components/Hero/GradientSpheres';
 import ProjectDetail from './components/ProjectDetail';
 
 // Helper component to handle scrolling and initialization
-const ScrollHandler = () => {
-  const { pathname, hash } = useLocation();
+const ScrollHandler = ({ isReady }) => {
+  const { pathname, hash, search } = useLocation();
 
   useEffect(() => {
     // Only initialize Lenis for the main landing page
@@ -40,59 +40,54 @@ const ScrollHandler = () => {
         infinite: false,
       });
 
+      window.lenis = lenis;
+
       function raf(time) {
         lenis.raf(time);
         requestAnimationFrame(raf);
       }
 
       requestAnimationFrame(raf);
-
-      if (hash) {
-        setTimeout(() => {
-          const element = document.querySelector(hash);
-          if (element) {
-            lenis.scrollTo(element, { offset: 0, duration: 1.5 });
-          }
-        }, 400);
-      } else {
-        window.scrollTo(0, 0);
-      }
     } else {
       // For detail pages, standard scroll is fine, but we must scroll to top
       window.scrollTo(0, 0);
     }
 
     return () => {
-      if (lenis) lenis.destroy();
+      if (lenis) {
+        lenis.destroy();
+        window.lenis = null;
+      }
     };
-  }, [pathname, hash]);
+  }, [pathname]);
 
-  // Track page views on route and hash changes
+  // Handle hash scrolling when the hash changes OR when the app becomes ready
+  useEffect(() => {
+    if (isReady && hash && window.lenis) {
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          window.lenis.scrollTo(element, { offset: 0, duration: 1.5 });
+        }
+      }, 100);
+    } else if (isReady && !hash && pathname === '/') {
+      window.scrollTo(0, 0);
+    }
+  }, [hash, isReady, pathname]);
+
+  // Track page views on route, hash, and search param changes
   useEffect(() => {
     if (window.gtag) {
       window.gtag('config', 'G-CG961CHMCQ', {
-        page_path: pathname + hash,
+        page_path: pathname + search + hash,
       });
     }
-  }, [pathname, hash]);
+  }, [pathname, search, hash]);
 
   return null;
 };
 
-const Home = ({ scrollToHash }) => {
-  useEffect(() => {
-    if (scrollToHash) {
-      // Wait for all components to render, then scroll
-      const timer = setTimeout(() => {
-        const element = document.querySelector(scrollToHash);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 600);
-      return () => clearTimeout(timer);
-    }
-  }, [scrollToHash]);
-
+const Home = () => {
   return (
     <div className="portfolio-content relative">
       <GradientSpheres
@@ -114,12 +109,10 @@ const Home = ({ scrollToHash }) => {
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  // Capture the hash at initial page load (before React clears it)
-  const initialHash = useRef(window.location.hash || null);
 
   return (
     <Router>
-      <ScrollHandler />
+      <ScrollHandler isReady={!isLoading} />
       <main>
         <AnimatePresence mode='wait'>
           {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
@@ -127,7 +120,7 @@ function App() {
 
         {!isLoading && (
           <Routes>
-            <Route path="/" element={<Home scrollToHash={initialHash.current} />} />
+            <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Navigate to="/#projects" replace />} />
             <Route path="/projects/:category" element={<CategoryRedirect />} />
             <Route path="/projects/:category/:slug" element={<ProjectDetail />} />
