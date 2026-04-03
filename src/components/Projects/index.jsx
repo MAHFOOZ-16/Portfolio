@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Code2, Globe } from 'lucide-react';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -141,6 +141,19 @@ export default function Projects() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.search]);
+
+  const navigate = useNavigate();
+
+  const handleCategoryClick = (category) => {
+    setActiveCategory(category);
+    if (category === 'All') {
+      navigate('/#projects', { replace: true });
+    } else {
+      const slug = category.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      navigate(`/?category=${slug}#projects`, { replace: true });
+    }
+  };
+
   const sortedCategories = uniqueCategories.sort((a, b) => {
     if (a === 'Other') return 1;
     if (b === 'Other') return -1;
@@ -185,7 +198,7 @@ export default function Projects() {
             <button
               key={category}
               className={`category-btn ${activeCategory === category ? 'active' : ''}`}
-              onClick={() => setActiveCategory(category)}
+              onClick={() => handleCategoryClick(category)}
             >
               {category}
             </button>
